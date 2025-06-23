@@ -197,12 +197,11 @@ print(f"📊 Test Loss: {test_loss:.4f}")
 print(f"\n🔍 PRUEBAS CUALITATIVAS")
 model.eval()
 
-test_examples = [
-    "Calcula las matrices de transformación para q1=30°, q2=45°, q3=60°",
-    "Jacobiano con ángulos 0.5, 1.2, 0.8 rad y velocidades 2, 1.5, 3 rad/s",
-    "Cinemática inversa para posición (100, 150, 200) mm"
-]
+test_examples = [item['input'] for item in test_data]
 
+perfect=0
+bad=0
+total=0
 for i, test_input in enumerate(test_examples):
     print(f"\n--- Prueba {i+1} ---")
     print(f"INPUT: {test_input}")
@@ -228,6 +227,20 @@ for i, test_input in enumerate(test_examples):
         print(f"✅ JSON válido - Operación: {parsed.get('operacion', 'N/A')}")
     except:
         print(f"❌ JSON inválido")
+
+    expected_output = test_data[i]['output']  # Output esperado
+    print(f"ESPERADO: {expected_output}")
+    print(f"OBTENIDO: {result}")
+
+    # Comparación exacta
+    if result.strip() == expected_output.strip():
+      print("✅ PREDICCIÓN PERFECTA")
+      perfect=perfect+1
+    else:
+      print("❌ DIFERENCIAS ENCONTRADAS")
+      bad=bad+1
+    total=total+1
+print(f"\n📊Performance del modelo\nCasos perfectos: {perfect/total}, ({(perfect/total)*100}%)\nCasos malos: {bad/total}, ({(bad/total)*100}%)")
 
 # Guardar modelo final
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
