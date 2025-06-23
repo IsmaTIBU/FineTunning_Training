@@ -1,118 +1,57 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Fine-tuning CodeT5 para Robótica - VERSIÓN ARREGLADA
-Archivo: training.py
-Uso: %run training.py
-"""
-
 # =============================================================================
-# ARREGLO DE DEPENDENCIAS PRIMERO
+# ENTRENAMIENTO CON DATOS DIVIDIDOS - VERSIÓN COMPLETA
 # =============================================================================
 
-import os
 import sys
-
-print("🔧 Arreglando dependencias...")
-
-# Instalar todo de golpe con versiones específicas
-os.system("pip install torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --quiet")
-os.system("pip install transformers==4.21.0 datasets==2.3.2 tokenizers==0.12.1 --quiet")
-
-print("✅ Dependencias instaladas")
-
-# =============================================================================
-# CONFIGURACIÓN INICIAL
-# =============================================================================
-
-from pathlib import Path
-
-# Configurar paths
-REPO_PATH = '/content/PRUEBA'
-if REPO_PATH not in sys.path:
-    sys.path.append(REPO_PATH)
-
-# Verificar estructura
-if not os.path.exists(os.path.join(REPO_PATH, 'DATA')):
-    print(f"❌ Error: No se encuentra la carpeta DATA en {REPO_PATH}")
-    sys.exit(1)
-
-print(f"✅ Directorio configurado: {REPO_PATH}")
-
-# =============================================================================
-# IMPORTS (DESPUÉS DE ARREGLAR DEPENDENCIAS)
-# =============================================================================
-
-import torch
+import os
 import json
-import random
-import numpy as np
 from datetime import datetime
 
-# Ahora importar transformers
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AdamW
+# Setup path
+sys.path.append('/content/PRUEBA')
+
+# Importar transformers (CORREGIDO)
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 from torch.utils.data import Dataset, DataLoader
+from torch.optim import AdamW  # ← De torch, no de transformers
+import torch
 
-print("✅ Todas las librerías importadas correctamente")
+# Cargar datos divididos (creados en setup.py)
+from DATA.train import train_data
+from DATA.val import val_data
+from DATA.test import test_data
 
-# =============================================================================
-# CARGAR DATOS
-# =============================================================================
+print(f"📊 Datos divididos cargados:")
+print(f"   • Train: {len(train_data)} ejemplos")
+print(f"   • Val: {len(val_data)} ejemplos")
+print(f"   • Test: {len(test_data)} ejemplos")
 
-try:
-    from DATA.train import train_data
-    from DATA.val import val_data
-    from DATA.test import test_data
-    
-    print(f"📊 Datos cargados:")
-    print(f"   • Train: {len(train_data)} ejemplos")
-    print(f"   • Validation: {len(val_data)} ejemplos")
-    print(f"   • Test: {len(test_data)} ejemplos")
-    
-except ImportError as e:
-    print(f"❌ Error cargando datos: {e}")
-    print("Ejecuta primero el script de división de datos")
-    sys.exit(1)
-
-# =============================================================================
-# CONFIGURACIÓN
-# =============================================================================
-
+# CONFIGURACIÓN PARA A100 (ESTO FALTABA)
 CONFIG = {
     'model_name': 'Salesforce/codet5-base',
-    'batch_size': 2,  # Conservador para evitar problemas
-    'learning_rate': 3e-5,
-    'epochs': 3,     # Pocas épocas para prueba rápida
-    'max_length': 128,  # Más corto para velocidad
-    'save_path': './models/',
-    'device': 'cuda' if torch.cuda.is_available() else 'cpu'
+    'batch_size': 4,        # Conservador para dataset pequeño
+    'learning_rate': 1e-4,
+    'epochs': 10,
+    'max_length': 256,
+    'device': 'cuda'
 }
 
-print(f"\\n⚙️ Configuración:")
+print(f"\n⚙️ Configuración:")
 for key, value in CONFIG.items():
     print(f"   • {key}: {value}")
 
-os.makedirs(CONFIG['save_path'], exist_ok=True)
+# Cargar modelo
+print(f"\n🤖 Cargando {CONFIG['model_name']}...")
+tokenizer = AutoTokenizer.from_pretrained(CONFIG['model_name'])
+model = AutoModelForSeq2SeqLM.from_pretrained(CONFIG['model_name'])
+model = model.to(CONFIG['device'])
 
-# =============================================================================
-# VERIFICAR GPU
-# =============================================================================
+print(f"✅ Modelo cargado en GPU")
+print(f"✅ Parámetros: {model.num_parameters():,}")
 
-if torch.cuda.is_available():
-    print(f"\\n🔧 GPU:")
-    print(f"   • {torch.cuda.get_device_name(0)}")
-    print(f"   • {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
-    # Limpiar memoria GPU
-    torch.cuda.empty_cache()
-else:
-    print("⚠️ Sin GPU")
-
-# =============================================================================
-# DATASET
-# =============================================================================
-
+# Dataset clase
 class RoboticsDataset(Dataset):
-    def __init__(self, data, tokenizer, max_length=128):
+    def __init__(self, data, tokenizer, max_length=256):
         self.data = data
         self.tokenizer = tokenizer
         self.max_length = max_length
@@ -123,158 +62,183 @@ class RoboticsDataset(Dataset):
     def __getitem__(self, idx):
         item = self.data[idx]
         
-        # Tokenizar más simple
-        input_text = str(item['input'])
-        target_text = str(item['output'])
-        
-        input_ids = self.tokenizer.encode(
-            input_text, 
-            max_length=self.max_length, 
-            truncation=True, 
-            padding='max_length'
+        # Tokenizar input
+        input_encoding = self.tokenizer(
+            item['input'],
+            truncation=True,
+            padding='max_length',
+            max_length=self.max_length,
+            return_tensors='pt'
         )
         
-        target_ids = self.tokenizer.encode(
-            target_text, 
-            max_length=self.max_length, 
-            truncation=True, 
-            padding='max_length'
+        # Tokenizar target
+        target_encoding = self.tokenizer(
+            item['output'],
+            truncation=True,
+            padding='max_length',
+            max_length=self.max_length,
+            return_tensors='pt'
         )
         
         return {
-            'input_ids': torch.tensor(input_ids, dtype=torch.long),
-            'labels': torch.tensor(target_ids, dtype=torch.long)
+            'input_ids': input_encoding['input_ids'].flatten(),
+            'attention_mask': input_encoding['attention_mask'].flatten(),
+            'labels': target_encoding['input_ids'].flatten()
         }
 
-# =============================================================================
-# CARGAR MODELO
-# =============================================================================
-
-print(f"\\n🤖 Cargando {CONFIG['model_name']}...")
-
-try:
-    tokenizer = AutoTokenizer.from_pretrained(CONFIG['model_name'])
-    model = AutoModelForSeq2SeqLM.from_pretrained(CONFIG['model_name'])
-    model = model.to(CONFIG['device'])
-    
-    print(f"✅ Modelo cargado")
-    print(f"✅ Parámetros: {model.num_parameters():,}")
-    
-except Exception as e:
-    print(f"❌ Error: {e}")
-    # Modelo fallback más simple
-    print("Intentando T5 como fallback...")
-    from transformers import T5Tokenizer, T5ForConditionalGeneration
-    tokenizer = T5Tokenizer.from_pretrained('t5-small')
-    model = T5ForConditionalGeneration.from_pretrained('t5-small')
-    model = model.to(CONFIG['device'])
-    print("✅ T5-small cargado como fallback")
-
-# =============================================================================
-# DATASETS
-# =============================================================================
-
-print("\\n📊 Creando datasets...")
-
+# Crear datasets
 train_dataset = RoboticsDataset(train_data, tokenizer, CONFIG['max_length'])
 val_dataset = RoboticsDataset(val_data, tokenizer, CONFIG['max_length'])
+test_dataset = RoboticsDataset(test_data, tokenizer, CONFIG['max_length'])
 
+# Crear dataloaders
 train_loader = DataLoader(train_dataset, batch_size=CONFIG['batch_size'], shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=CONFIG['batch_size'], shuffle=False)
+test_loader = DataLoader(test_dataset, batch_size=CONFIG['batch_size'], shuffle=False)
 
+# Optimizador
 optimizer = AdamW(model.parameters(), lr=CONFIG['learning_rate'])
 
-print("✅ Todo preparado")
+print("✅ Datasets y optimizador configurados")
 
-# =============================================================================
-# ENTRENAMIENTO SIMPLIFICADO
-# =============================================================================
+print("🚀 INICIANDO FINE-TUNING EN A100")
+print("=" * 60)
 
-def train_simple():
-    print("\\n🎯 ENTRENAMIENTO INICIADO")
-    print("=" * 50)
-    
+# Crear directorio para modelos
+os.makedirs('./models', exist_ok=True)
+
+# Función de entrenamiento
+def train_epoch(model, dataloader, optimizer, device):
     model.train()
+    total_loss = 0
     
-    for epoch in range(CONFIG['epochs']):
-        print(f"\\nÉpoca {epoch + 1}/{CONFIG['epochs']}")
+    for batch_idx, batch in enumerate(dataloader):
+        input_ids = batch['input_ids'].to(device)
+        attention_mask = batch['attention_mask'].to(device)
+        labels = batch['labels'].to(device)
         
-        total_loss = 0
-        for batch_idx, batch in enumerate(train_loader):
-            
-            input_ids = batch['input_ids'].to(CONFIG['device'])
-            labels = batch['labels'].to(CONFIG['device'])
-            
-            # Forward
-            outputs = model(input_ids=input_ids, labels=labels)
-            loss = outputs.loss
-            
-            # Backward
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-            
-            total_loss += loss.item()
-            
-            print(f"  Batch {batch_idx + 1}: Loss = {loss.item():.4f}")
+        # Forward pass
+        outputs = model(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            labels=labels
+        )
         
-        avg_loss = total_loss / len(train_loader)
-        print(f"📊 Época {epoch + 1} - Loss promedio: {avg_loss:.4f}")
+        loss = outputs.loss
+        
+        # Backward pass
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        
+        total_loss += loss.item()
+        
+        print(f"   Batch {batch_idx+1}/{len(dataloader)}, Loss: {loss.item():.4f}")
     
-    # Guardar modelo
-    model_path = os.path.join(CONFIG['save_path'], 'robotics_model_simple.pth')
-    torch.save(model.state_dict(), model_path)
-    print(f"\\n💾 Modelo guardado: {model_path}")
-    
-    return model
+    return total_loss / len(dataloader)
 
-# =============================================================================
-# TEST RÁPIDO
-# =============================================================================
-
-def test_model():
-    print("\\n🧪 PRUEBA RÁPIDA")
-    
+# Función de validación
+def validate(model, dataloader, device):
     model.eval()
-    test_input = "Calcula matrices de transformación para q1=30°, q2=45°, q3=60°"
-    
-    inputs = tokenizer.encode(test_input, return_tensors="pt", max_length=CONFIG['max_length'], truncation=True)
-    inputs = inputs.to(CONFIG['device'])
+    total_loss = 0
     
     with torch.no_grad():
-        outputs = model.generate(inputs, max_length=CONFIG['max_length'], num_beams=2)
+        for batch in dataloader:
+            input_ids = batch['input_ids'].to(device)
+            attention_mask = batch['attention_mask'].to(device)
+            labels = batch['labels'].to(device)
+            
+            outputs = model(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                labels=labels
+            )
+            
+            total_loss += outputs.loss.item()
     
-    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    
-    print(f"INPUT: {test_input}")
-    print(f"OUTPUT: {result}")
-    
-    return result
+    return total_loss / len(dataloader)
 
-# =============================================================================
-# MAIN
-# =============================================================================
+# ENTRENAMIENTO PRINCIPAL
+best_val_loss = float('inf')
+training_history = []
 
-def main():
-    print("\\n🚀 INICIANDO PROCESO COMPLETO")
+for epoch in range(CONFIG['epochs']):
+    print(f"\n📈 ÉPOCA {epoch + 1}/{CONFIG['epochs']}")
+    print("-" * 40)
     
     # Entrenar
-    trained_model = train_simple()
+    train_loss = train_epoch(model, train_loader, optimizer, CONFIG['device'])
     
-    # Probar
-    result = test_model()
+    # Validar
+    val_loss = validate(model, val_loader, CONFIG['device'])
     
-    print("\\n🎉 ¡COMPLETADO!")
-    print("Variables disponibles:")
-    print("- model: Modelo entrenado")
-    print("- tokenizer: Tokenizer")
-    print("- CONFIG: Configuración")
+    # Guardar mejor modelo
+    if val_loss < best_val_loss:
+        best_val_loss = val_loss
+        torch.save(model.state_dict(), './models/best_robotics_model.pth')
+        print(f"   💾 Mejor modelo guardado (val_loss: {val_loss:.4f})")
     
-    return trained_model, result
+    # Log
+    print(f"   📊 Train Loss: {train_loss:.4f}")
+    print(f"   📊 Val Loss: {val_loss:.4f}")
+    
+    training_history.append({
+        'epoch': epoch + 1,
+        'train_loss': train_loss,
+        'val_loss': val_loss
+    })
 
-# =============================================================================
-# EJECUCIÓN
-# =============================================================================
+# Evaluación final
+print(f"\n🧪 EVALUACIÓN EN TEST SET")
+test_loss = validate(model, test_loader, CONFIG['device'])
+print(f"📊 Test Loss: {test_loss:.4f}")
 
-if __name__ == "__main__":
-    trained_model, test_result = main()
+# Pruebas cualitativas
+print(f"\n🔍 PRUEBAS CUALITATIVAS")
+model.eval()
+
+test_examples = [
+    "Calcula las matrices de transformación para q1=30°, q2=45°, q3=60°",
+    "Jacobiano con ángulos 0.5, 1.2, 0.8 rad y velocidades 2, 1.5, 3 rad/s",
+    "Cinemática inversa para posición (100, 150, 200) mm"
+]
+
+for i, test_input in enumerate(test_examples):
+    print(f"\n--- Prueba {i+1} ---")
+    print(f"INPUT: {test_input}")
+    
+    inputs = tokenizer(test_input, return_tensors="pt", max_length=CONFIG['max_length'], truncation=True)
+    inputs = {k: v.to(CONFIG['device']) for k, v in inputs.items()}
+    
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_length=CONFIG['max_length'],
+            num_beams=5,
+            temperature=0.1,
+            do_sample=False
+        )
+    
+    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    print(f"OUTPUT: {result}")
+    
+    # Validar JSON
+    try:
+        parsed = json.loads(result)
+        print(f"✅ JSON válido - Operación: {parsed.get('operacion', 'N/A')}")
+    except:
+        print(f"❌ JSON inválido")
+
+# Guardar modelo final
+timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+torch.save(model.state_dict(), f'./models/robotics_codet5_final_{timestamp}.pth')
+
+print(f"\n🎉 ¡FINE-TUNING COMPLETADO!")
+print(f"💾 Modelos guardados en ./models/")
+
+# Mostrar resumen
+print(f"\n📊 RESUMEN:")
+for h in training_history:
+    print(f"   Época {h['epoch']}: Train={h['train_loss']:.4f}, Val={h['val_loss']:.4f}")
+    
+print(f"\n🚀 Modelo entrenado y listo para usar!")
