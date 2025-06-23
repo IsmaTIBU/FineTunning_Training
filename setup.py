@@ -1,231 +1,152 @@
 # =============================================================================
-# FINE-TUNING CODET5 PARA EXTRACCIÓN DE PARÁMETROS EN ROBÓTICA
-# Configuración inicial en Google Colab Pro
-# =============================================================================
-
-# Primero verificamos el tipo de GPU disponible
-!nvidia-smi
-
-print("=== VERIFICACIÓN DEL ENTORNO ===")
-import torch
-print(f"CUDA disponible: {torch.cuda.is_available()}")
-if torch.cuda.is_available():
-    print(f"GPU: {torch.cuda.get_device_name(0)}")
-    print(f"Memoria GPU: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
-
-# =============================================================================
-# INSTALACIÓN DE DEPENDENCIAS
-# =============================================================================
-
-print("\n=== INSTALANDO DEPENDENCIAS ===")
-!pip install transformers==4.36.0
-!pip install datasets==2.14.0
-!pip install torch==2.1.0
-!pip install accelerate==0.24.0
-!pip install evaluate==0.4.0
-!pip install tensorboard==2.14.0
-
-# Opcional: para visualización y debugging
-!pip install matplotlib seaborn pandas numpy
-
-# =============================================================================
-# IMPORTS NECESARIOS
+# DIVIDIR Y GUARDAR DATASET EN ARCHIVOS SEPARADOS
 # =============================================================================
 
 import json
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from typing import Dict, List, Any
-import re
 import random
-from datetime import datetime
+import os
+import sys
+
+# Setup
+sys.path.append('/content/PRUEBA')
+
+# Cargar datos
 from DATA import cinematica_directa_train, cinematica_inversa_train, jacobiano_train, matrices_train, simulacion_train
 
-# Transformers y entrenamiento
-from transformers import (
-    AutoTokenizer, 
-    AutoModelForSeq2SeqLM,
-    TrainingArguments,
-    Trainer,
-    DataCollatorForSeq2Seq,
-    EarlyStoppingCallback
-)
-from datasets import Dataset, DatasetDict
-import torch
-from torch.utils.data import DataLoader
+def main():
+    all_data = cinematica_directa_train + cinematica_inversa_train + jacobiano_train + matrices_train + simulacion_train
+    print(f"📊 Total de ejemplos: {len(all_data)}")
 
-# Para evaluación
-from evaluate import load
-import warnings
-warnings.filterwarnings('ignore')
+    # Mezclar datos aleatoriamente para división justa
+    random.seed(42)  # Para reproducibilidad
+    random.shuffle(all_data)
 
-# =============================================================================
-# CONFIGURACIÓN DEL MODELO
-# =============================================================================
+    # Calcular tamaños de división
+    total_size = len(all_data)
+    train_size = int(0.70 * total_size)
+    val_size = int(0.15 * total_size)
+    test_size = total_size - train_size - val_size  # El resto
 
-# Usaremos CodeT5+ small que es más potente que base pero manejable en Colab Pro
-MODEL_NAME = "Salesforce/codet5p-220m"  # 220M parámetros - buen balance
-# Alternativas si quieres más potencia:
-# "Salesforce/codet5p-770m"  # 770M parámetros - más potente pero más lento
-# "Salesforce/codet5-base"   # Original CodeT5 base
+    print(f"📈 División de datos:")
+    print(f"   • Train: {train_size} ejemplos (70%)")
+    print(f"   • Validation: {val_size} ejemplos (15%)")
+    print(f"   • Test: {test_size} ejemplos (15%)")
 
-print(f"\n=== CARGANDO MODELO: {MODEL_NAME} ===")
+    # Dividir datos
+    train_data = all_data[:train_size]
+    val_data = all_data[train_size:train_size + val_size]
+    test_data = all_data[train_size + val_size:]
 
-# Cargar tokenizer
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    # Verificar divisiones
+    print(f"\n✅ Verificación:")
+    print(f"   • Train: {len(train_data)} ejemplos")
+    print(f"   • Val: {len(val_data)} ejemplos")
+    print(f"   • Test: {len(test_data)} ejemplos")
+    print(f"   • Total: {len(train_data) + len(val_data) + len(test_data)}")
 
-# Cargar modelo
-model = AutoModelForSeq2SeqLM.from_pretrained(
-    MODEL_NAME,
-    torch_dtype=torch.float16,  # Usar half precision para ahorrar memoria
-    device_map="auto"
-)
+    # Crear archivos .py para cada división
+    def create_python_file(data, filename, variable_name):
+        """Crea un archivo .py con los datos"""
+        
+        content = f'''# {filename.upper()} DATASET
+    # Generado automáticamente
 
-print(f"Modelo cargado exitosamente!")
-print(f"Parámetros del modelo: {model.num_parameters():,}")
+    {variable_name} = [
+    '''
+        
+        for item in data:
+            # Formatear cada entrada como diccionario Python
+            input_str = repr(item['input'])
+            output_str = repr(item['output'])
+            
+            content += f'''    {{
+            "input": {input_str},
+            "output": {output_str}
+        }},
+    '''
+        
+        content += f''']
 
-# =============================================================================
-# CREAR DATASET PEQUEÑO PARA ROBÓTICA
-# =============================================================================
+    # Estadísticas del {filename}
+    print(f"📊 {filename.capitalize()} dataset: {{len({variable_name})}} ejemplos")
+    '''
+        
+        return content
 
-def create_robotics_dataset():
-    """
-    Crea un dataset pequeño de 50 ejemplos para probar el concepto
-    """
-    
-    dataset = []
-    
-    
-    # Combinar todos los ejemplos
-    all_examples = (cinematica_directa_train + cinematica_inversa_train + 
-                    jacobiano_train + matrices_train + simulacion_train)
-    
-    return all_examples
+    # Crear archivos
+    print(f"\n📁 Creando archivos en /content/PRUEBA/DATA/...")
 
-# Crear el dataset
-print("\n=== CREANDO DATASET DE ROBÓTICA ===")
-robotics_data = create_robotics_dataset()
-print(f"Dataset creado con {len(robotics_data)} ejemplos")
+    # Train
+    train_content = create_python_file(train_data, "train", "train_data")
+    with open('/content/PRUEBA/DATA/train.py', 'w', encoding='utf-8') as f:
+        f.write(train_content)
 
-# Mostrar algunos ejemplos
-print("\n=== EJEMPLOS DEL DATASET ===")
-for i, example in enumerate(robotics_data[:3]):
-    print(f"\nEjemplo {i+1}:")
-    print(f"INPUT: {example['input']}")
-    print(f"OUTPUT: {example['output']}")
+    # Validation
+    val_content = create_python_file(val_data, "validation", "val_data")
+    with open('/content/PRUEBA/DATA/val.py', 'w', encoding='utf-8') as f:
+        f.write(val_content)
 
-# =============================================================================
-# PREPARAR DATOS PARA ENTRENAMIENTO
-# =============================================================================
+    # Test
+    test_content = create_python_file(test_data, "test", "test_data")
+    with open('/content/PRUEBA/DATA/test.py', 'w', encoding='utf-8') as f:
+        f.write(test_content)
 
-def preprocess_function(examples):
-    """
-    Preprocesa los datos para el formato que espera CodeT5
-    """
-    inputs = examples['input']
-    targets = examples['output']
-    
-    # Tokenizar inputs
-    model_inputs = tokenizer(
-        inputs, 
-        max_length=256, 
-        truncation=True, 
-        padding=True
-    )
-    
-    # Tokenizar targets
-    with tokenizer.as_target_tokenizer():
-        labels = tokenizer(
-            targets, 
-            max_length=256, 
-            truncation=True, 
-            padding=True
-        )
-    
-    model_inputs["labels"] = labels["input_ids"]
-    return model_inputs
+    print("✅ Archivos creados:")
+    print("   • /content/PRUEBA/DATA/train.py")
+    print("   • /content/PRUEBA/DATA/val.py") 
+    print("   • /content/PRUEBA/DATA/test.py")
 
-# Dividir datos: 70% train, 15% val, 15% test
-print("\n=== DIVIDIENDO DATASET ===")
-random.shuffle(robotics_data)
+    # Actualizar __init__.py para incluir los nuevos archivos
+    init_content = '''from .C_Directa import cinematica_directa_train
+    from .C_Inversa import cinematica_inversa_train
+    from .jacobiano import jacobiano_train
+    from .matrices_Transf import matrices_train
+    from .simulacion import simulacion_train 
 
-n_total = len(robotics_data)
-n_train = int(0.7 * n_total)
-n_val = int(0.15 * n_total)
+    # Archivos de división de datos
+    from .train import train_data
+    from .val import val_data
+    from .test import test_data
 
-train_data = robotics_data[:n_train]
-val_data = robotics_data[n_train:n_train + n_val]
-test_data = robotics_data[n_train + n_val:]
+    __all__ = [
+        'C_Directa', 'C_Inversa', 'jacobiano', 'matrices_Transf', 'simulacion',
+        'train_data', 'val_data', 'test_data'
+    ]
+    '''
 
-print(f"Train: {len(train_data)} ejemplos")
-print(f"Validation: {len(val_data)} ejemplos") 
-print(f"Test: {len(test_data)} ejemplos")
+    with open('/content/PRUEBA/DATA/__init__.py', 'w', encoding='utf-8') as f:
+        f.write(init_content)
 
-# Crear datasets de HuggingFace
-train_dataset = Dataset.from_list(train_data)
-val_dataset = Dataset.from_list(val_data)
-test_dataset = Dataset.from_list(test_data)
+    print("✅ __init__.py actualizado")
 
-# Aplicar preprocesamiento
-train_dataset = train_dataset.map(preprocess_function, batched=True)
-val_dataset = val_dataset.map(preprocess_function, batched=True)
-test_dataset = test_dataset.map(preprocess_function, batched=True)
+    # Verificar que los archivos funcionan
+    print(f"\n🧪 Verificando archivos creados...")
 
-print("Datasets preprocesados exitosamente!")
+    try:
+        # Importar para verificar
+        sys.path.append('/content/PRUEBA')
+        from DATA.train import train_data
+        from DATA.val import val_data  
+        from DATA.test import test_data
+        
+        print(f"✅ train.py: {len(train_data)} ejemplos cargados")
+        print(f"✅ val.py: {len(val_data)} ejemplos cargados")
+        print(f"✅ test.py: {len(test_data)} ejemplos cargados")
+        
+        # Mostrar ejemplo de cada conjunto
+        print(f"\n📋 Ejemplos de cada conjunto:")
+        print(f"TRAIN: {train_data[0]['input'][:50]}...")
+        print(f"VAL: {val_data[0]['input'][:50]}...")
+        print(f"TEST: {test_data[0]['input'][:50]}...")
+        
+    except Exception as e:
+        print(f"❌ Error verificando archivos: {e}")
 
-# =============================================================================
-# DATA COLLATOR
-# =============================================================================
+    print(f"\n🎉 ¡DIVISIÓN COMPLETADA!")
+    print(f"Ahora puedes usar:")
+    print(f"   from DATA.train import train_data")
+    print(f"   from DATA.val import val_data")
+    print(f"   from DATA.test import test_data")
 
-data_collator = DataCollatorForSeq2Seq(
-    tokenizer=tokenizer,
-    model=model,
-    padding=True
-)
-
-print("\n=== CONFIGURACIÓN COMPLETA ===")
-print("✅ Modelo cargado")
-print("✅ Dataset creado y preprocesado") 
-print("✅ Data collator configurado")
-print("✅ Listo para configurar entrenamiento!")
-
-# =============================================================================
-# FUNCIÓN DE PRUEBA RÁPIDA
-# =============================================================================
-
-def test_model_before_training():
-    """
-    Prueba rápida del modelo antes del entrenamiento
-    """
-    print("\n=== PRUEBA PRE-ENTRENAMIENTO ===")
-    
-    test_input = "Calcula las matrices de transformación para q1=30°, q2=45°, q3=60°"
-    
-    # Tokenizar
-    inputs = tokenizer(test_input, return_tensors="pt", max_length=256, truncation=True)
-    
-    # Mover a GPU si está disponible
-    if torch.cuda.is_available():
-        inputs = {k: v.cuda() for k, v in inputs.items()}
-        model.cuda()
-    
-    # Generar
-    with torch.no_grad():
-        outputs = model.generate(
-            **inputs,
-            max_length=256,
-            num_beams=3,
-            temperature=0.7,
-            do_sample=True
-        )
-    
-    # Decodificar
-    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    
-    print(f"INPUT: {test_input}")
-    print(f"OUTPUT (pre-training): {result}")
-    print("(Probablemente será incoherente antes del fine-tuning)")
-
-# Ejecutar prueba
-test_model_before_training()
+if __name__=="__main__":
+    main()

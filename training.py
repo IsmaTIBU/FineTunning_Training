@@ -1,266 +1,280 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Fine-tuning CodeT5 para Robótica - VERSIÓN ARREGLADA
+Archivo: training.py
+Uso: %run training.py
+"""
+
 # =============================================================================
-# CONFIGURACIÓN DE ENTRENAMIENTO OPTIMIZADA PARA A100
+# ARREGLO DE DEPENDENCIAS PRIMERO
 # =============================================================================
 
 import os
-from datetime import datetime
+import sys
+
+print("🔧 Arreglando dependencias...")
+
+# Instalar todo de golpe con versiones específicas
+os.system("pip install torch==2.0.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --quiet")
+os.system("pip install transformers==4.21.0 datasets==2.3.2 tokenizers==0.12.1 --quiet")
+
+print("✅ Dependencias instaladas")
+
+# =============================================================================
+# CONFIGURACIÓN INICIAL
+# =============================================================================
+
+from pathlib import Path
+
+# Configurar paths
+REPO_PATH = '/content/PRUEBA'
+if REPO_PATH not in sys.path:
+    sys.path.append(REPO_PATH)
+
+# Verificar estructura
+if not os.path.exists(os.path.join(REPO_PATH, 'DATA')):
+    print(f"❌ Error: No se encuentra la carpeta DATA en {REPO_PATH}")
+    sys.exit(1)
+
+print(f"✅ Directorio configurado: {REPO_PATH}")
+
+# =============================================================================
+# IMPORTS (DESPUÉS DE ARREGLAR DEPENDENCIAS)
+# =============================================================================
+
+import torch
 import json
+import random
+import numpy as np
+from datetime import datetime
+
+# Ahora importar transformers
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AdamW
+from torch.utils.data import Dataset, DataLoader
+
+print("✅ Todas las librerías importadas correctamente")
 
 # =============================================================================
-# CONFIGURACIÓN DE ENTRENAMIENTO AGRESIVA PARA A100
+# CARGAR DATOS
 # =============================================================================
 
-def setup_training_arguments():
-    """
-    Configura argumentos de entrenamiento optimizados para GPU A100
-    """
+try:
+    from DATA.train import train_data
+    from DATA.val import val_data
+    from DATA.test import test_data
     
-    # Crear directorio para checkpoints
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_dir = f"./codet5_robotics_finetuned_{timestamp}"
+    print(f"📊 Datos cargados:")
+    print(f"   • Train: {len(train_data)} ejemplos")
+    print(f"   • Validation: {len(val_data)} ejemplos")
+    print(f"   • Test: {len(test_data)} ejemplos")
     
-    training_args = TrainingArguments(
-        # Directorios
-        output_dir=output_dir,
-        logging_dir=f"{output_dir}/logs",
-        
-        # Configuración agresiva para A100 (40GB VRAM)
-        per_device_train_batch_size=16,      # Batch grande aprovechando A100
-        per_device_eval_batch_size=32,       # Eval batch aún más grande
-        gradient_accumulation_steps=2,        # Total effective batch = 32
-        
-        # Learning rate optimizado para fine-tuning
-        learning_rate=3e-5,                  # Agresivo pero seguro
-        weight_decay=0.01,                   # Regularización
-        adam_epsilon=1e-8,
-        warmup_steps=100,                    # Warmup steps
-        
-        # Épocas y evaluación
-        num_train_epochs=5,                  # Suficiente para aprender
-        eval_strategy="steps",               # Evaluar cada X steps
-        eval_steps=50,                       # Evaluación frecuente
-        save_strategy="steps",
-        save_steps=50,                       # Guardar checkpoints frecuentemente
-        
-        # Early stopping y mejores modelos
-        load_best_model_at_end=True,
-        metric_for_best_model="eval_loss",
-        greater_is_better=False,
-        save_total_limit=3,                  # Solo 3 checkpoints máximo
-        
-        # Logging y monitoreo
-        logging_steps=10,                    # Log cada 10 steps
-        report_to="tensorboard",             # TensorBoard logging
-        
-        # Optimizaciones de memoria y velocidad para A100
-        fp16=True,                           # Mixed precision training
-        dataloader_pin_memory=True,          # Optimización de memoria
-        dataloader_num_workers=4,            # Paralelización
-        remove_unused_columns=False,         # Mantener columnas
-        
-        # Configuración de gradientes
-        max_grad_norm=1.0,                   # Gradient clipping
-        
-        # Reproducibilidad
-        seed=42,
-        data_seed=42,
-        
-        # Configuración adicional
-        predict_with_generate=True,          # Para evaluación con generación
-    )
-    
-    return training_args, output_dir
-
-# Configurar argumentos
-print("\n=== CONFIGURANDO ENTRENAMIENTO PARA A100 ===")
-training_args, output_dir = setup_training_arguments()
-print(f"Directorio de salida: {output_dir}")
-print(f"Batch size efectivo: {training_args.per_device_train_batch_size * training_args.gradient_accumulation_steps}")
+except ImportError as e:
+    print(f"❌ Error cargando datos: {e}")
+    print("Ejecuta primero el script de división de datos")
+    sys.exit(1)
 
 # =============================================================================
-# MÉTRICAS DE EVALUACIÓN PERSONALIZADAS
+# CONFIGURACIÓN
 # =============================================================================
 
-def compute_metrics(eval_preds):
-    """
-    Métricas personalizadas para evaluar la extracción de parámetros
-    """
-    predictions, labels = eval_preds
+CONFIG = {
+    'model_name': 'Salesforce/codet5-base',
+    'batch_size': 2,  # Conservador para evitar problemas
+    'learning_rate': 3e-5,
+    'epochs': 3,     # Pocas épocas para prueba rápida
+    'max_length': 128,  # Más corto para velocidad
+    'save_path': './models/',
+    'device': 'cuda' if torch.cuda.is_available() else 'cpu'
+}
+
+print(f"\\n⚙️ Configuración:")
+for key, value in CONFIG.items():
+    print(f"   • {key}: {value}")
+
+os.makedirs(CONFIG['save_path'], exist_ok=True)
+
+# =============================================================================
+# VERIFICAR GPU
+# =============================================================================
+
+if torch.cuda.is_available():
+    print(f"\\n🔧 GPU:")
+    print(f"   • {torch.cuda.get_device_name(0)}")
+    print(f"   • {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
+    # Limpiar memoria GPU
+    torch.cuda.empty_cache()
+else:
+    print("⚠️ Sin GPU")
+
+# =============================================================================
+# DATASET
+# =============================================================================
+
+class RoboticsDataset(Dataset):
+    def __init__(self, data, tokenizer, max_length=128):
+        self.data = data
+        self.tokenizer = tokenizer
+        self.max_length = max_length
     
-    # Decodificar predicciones y labels
-    decoded_preds = tokenizer.batch_decode(predictions, skip_special_tokens=True)
+    def __len__(self):
+        return len(self.data)
     
-    # Reemplazar -100 en labels (tokens ignorados)
-    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
-    decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
+    def __getitem__(self, idx):
+        item = self.data[idx]
+        
+        # Tokenizar más simple
+        input_text = str(item['input'])
+        target_text = str(item['output'])
+        
+        input_ids = self.tokenizer.encode(
+            input_text, 
+            max_length=self.max_length, 
+            truncation=True, 
+            padding='max_length'
+        )
+        
+        target_ids = self.tokenizer.encode(
+            target_text, 
+            max_length=self.max_length, 
+            truncation=True, 
+            padding='max_length'
+        )
+        
+        return {
+            'input_ids': torch.tensor(input_ids, dtype=torch.long),
+            'labels': torch.tensor(target_ids, dtype=torch.long)
+        }
+
+# =============================================================================
+# CARGAR MODELO
+# =============================================================================
+
+print(f"\\n🤖 Cargando {CONFIG['model_name']}...")
+
+try:
+    tokenizer = AutoTokenizer.from_pretrained(CONFIG['model_name'])
+    model = AutoModelForSeq2SeqLM.from_pretrained(CONFIG['model_name'])
+    model = model.to(CONFIG['device'])
     
-    # Métricas personalizadas
-    exact_matches = 0
-    json_valid = 0
-    operation_correct = 0
+    print(f"✅ Modelo cargado")
+    print(f"✅ Parámetros: {model.num_parameters():,}")
     
-    for pred, label in zip(decoded_preds, decoded_labels):
-        # Exact match
-        if pred.strip() == label.strip():
-            exact_matches += 1
+except Exception as e:
+    print(f"❌ Error: {e}")
+    # Modelo fallback más simple
+    print("Intentando T5 como fallback...")
+    from transformers import T5Tokenizer, T5ForConditionalGeneration
+    tokenizer = T5Tokenizer.from_pretrained('t5-small')
+    model = T5ForConditionalGeneration.from_pretrained('t5-small')
+    model = model.to(CONFIG['device'])
+    print("✅ T5-small cargado como fallback")
+
+# =============================================================================
+# DATASETS
+# =============================================================================
+
+print("\\n📊 Creando datasets...")
+
+train_dataset = RoboticsDataset(train_data, tokenizer, CONFIG['max_length'])
+val_dataset = RoboticsDataset(val_data, tokenizer, CONFIG['max_length'])
+
+train_loader = DataLoader(train_dataset, batch_size=CONFIG['batch_size'], shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=CONFIG['batch_size'], shuffle=False)
+
+optimizer = AdamW(model.parameters(), lr=CONFIG['learning_rate'])
+
+print("✅ Todo preparado")
+
+# =============================================================================
+# ENTRENAMIENTO SIMPLIFICADO
+# =============================================================================
+
+def train_simple():
+    print("\\n🎯 ENTRENAMIENTO INICIADO")
+    print("=" * 50)
+    
+    model.train()
+    
+    for epoch in range(CONFIG['epochs']):
+        print(f"\\nÉpoca {epoch + 1}/{CONFIG['epochs']}")
+        
+        total_loss = 0
+        for batch_idx, batch in enumerate(train_loader):
             
-        # JSON válido
-        try:
-            pred_json = json.loads(pred)
-            json_valid += 1
+            input_ids = batch['input_ids'].to(CONFIG['device'])
+            labels = batch['labels'].to(CONFIG['device'])
             
-            # Operación correcta
-            try:
-                label_json = json.loads(label)
-                if pred_json.get('operacion') == label_json.get('operacion'):
-                    operation_correct += 1
-            except:
-                pass
-        except:
-            pass
+            # Forward
+            outputs = model(input_ids=input_ids, labels=labels)
+            loss = outputs.loss
+            
+            # Backward
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            
+            total_loss += loss.item()
+            
+            print(f"  Batch {batch_idx + 1}: Loss = {loss.item():.4f}")
+        
+        avg_loss = total_loss / len(train_loader)
+        print(f"📊 Época {epoch + 1} - Loss promedio: {avg_loss:.4f}")
     
-    total = len(decoded_preds)
+    # Guardar modelo
+    model_path = os.path.join(CONFIG['save_path'], 'robotics_model_simple.pth')
+    torch.save(model.state_dict(), model_path)
+    print(f"\\n💾 Modelo guardado: {model_path}")
     
-    return {
-        'exact_match': exact_matches / total,
-        'json_valid_rate': json_valid / total,
-        'operation_accuracy': operation_correct / total,
-    }
+    return model
 
 # =============================================================================
-# CONFIGURAR TRAINER
+# TEST RÁPIDO
 # =============================================================================
 
-# Callback para early stopping
-early_stopping = EarlyStoppingCallback(
-    early_stopping_patience=3,
-    early_stopping_threshold=0.001
-)
-
-# Crear trainer
-print("\n=== CONFIGURANDO TRAINER ===")
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=train_dataset,
-    eval_dataset=val_dataset,
-    tokenizer=tokenizer,
-    data_collator=data_collator,
-    compute_metrics=compute_metrics,
-    callbacks=[early_stopping]
-)
-
-print("✅ Trainer configurado exitosamente!")
+def test_model():
+    print("\\n🧪 PRUEBA RÁPIDA")
+    
+    model.eval()
+    test_input = "Calcula matrices de transformación para q1=30°, q2=45°, q3=60°"
+    
+    inputs = tokenizer.encode(test_input, return_tensors="pt", max_length=CONFIG['max_length'], truncation=True)
+    inputs = inputs.to(CONFIG['device'])
+    
+    with torch.no_grad():
+        outputs = model.generate(inputs, max_length=CONFIG['max_length'], num_beams=2)
+    
+    result = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    
+    print(f"INPUT: {test_input}")
+    print(f"OUTPUT: {result}")
+    
+    return result
 
 # =============================================================================
-# FUNCIÓN DE ENTRENAMIENTO CON MONITOREO
+# MAIN
 # =============================================================================
 
-def start_training():
-    """
-    Inicia el entrenamiento con monitoreo completo
-    """
-    print("\n" + "="*50)
-    print("🚀 INICIANDO FINE-TUNING")
-    print("="*50)
+def main():
+    print("\\n🚀 INICIANDO PROCESO COMPLETO")
     
-    print(f"📊 Estadísticas del entrenamiento:")
-    print(f"   • Modelo: {MODEL_NAME}")
-    print(f"   • GPU: {torch.cuda.get_device_name(0)}")
-    print(f"   • Datos entrenamiento: {len(train_dataset)}")
-    print(f"   • Datos validación: {len(val_dataset)}")
-    print(f"   • Batch size efectivo: {training_args.per_device_train_batch_size * training_args.gradient_accumulation_steps}")
-    print(f"   • Learning rate: {training_args.learning_rate}")
-    print(f"   • Épocas: {training_args.num_train_epochs}")
+    # Entrenar
+    trained_model = train_simple()
     
-    # Limpiar memoria GPU antes de empezar
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    # Probar
+    result = test_model()
     
-    # Iniciar entrenamiento
-    print(f"\n⏰ Iniciando entrenamiento a las {datetime.now().strftime('%H:%M:%S')}")
-    print("💡 Tip: Puedes monitorear el progreso en tiempo real con TensorBoard")
-    print(f"   Comando: %tensorboard --logdir {output_dir}/logs")
+    print("\\n🎉 ¡COMPLETADO!")
+    print("Variables disponibles:")
+    print("- model: Modelo entrenado")
+    print("- tokenizer: Tokenizer")
+    print("- CONFIG: Configuración")
     
-    try:
-        # ¡ENTRENAR!
-        trainer.train()
-        
-        print("\n🎉 ¡ENTRENAMIENTO COMPLETADO!")
-        
-        # Guardar modelo final
-        trainer.save_model()
-        tokenizer.save_pretrained(output_dir)
-        
-        print(f"💾 Modelo guardado en: {output_dir}")
-        
-        return True
-        
-    except Exception as e:
-        print(f"\n❌ Error durante el entrenamiento: {e}")
-        return False
+    return trained_model, result
 
 # =============================================================================
-# FUNCIÓN DE EVALUACIÓN POST-ENTRENAMIENTO
+# EJECUCIÓN
 # =============================================================================
 
-def evaluate_final_model():
-    """
-    Evaluación completa del modelo entrenado
-    """
-    print("\n" + "="*50)
-    print("📊 EVALUACIÓN FINAL")
-    print("="*50)
-    
-    # Evaluar en test set
-    test_results = trainer.evaluate(test_dataset)
-    
-    print("📈 Métricas en test set:")
-    for metric, value in test_results.items():
-        if isinstance(value, float):
-            print(f"   • {metric}: {value:.4f}")
-    
-    # Pruebas cualitativas
-    print("\n🧪 Pruebas cualitativas:")
-    
-    test_cases = [
-        "Calcula las matrices de transformación para q1=30°, q2=45°, q3=60°",
-        "Jacobiano con ángulos 0.5, 1.2, 0.8 rad y velocidades 2, 1.5, 3 rad/s",
-        "Cinemática inversa para posición (100, 150, 200) mm",
-        "Simula robot con q1=90°, q2=45°, q3=30°",
-        "Cinemática directa para q1=1.57, q2=0.785, q3=0 radianes"
-    ]
-    
-    for i, test_case in enumerate(test_cases, 1):
-        print(f"\n--- Prueba {i} ---")
-        print(f"INPUT: {test_case}")
-        
-        # Tokenizar y generar
-        inputs = tokenizer(test_case, return_tensors="pt", max_length=256, truncation=True)
-        if torch.cuda.is_available():
-            inputs = {k: v.cuda() for k, v in inputs.items()}
-        
-        with torch.no_grad():
-            outputs = model.generate(
-                **inputs,
-                max_length=256,
-                num_beams=5,  # Beam search más agresivo
-                temperature=0.1,  # Más determinístico
-                do_sample=False
-            )
-        
-        result = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        print(f"OUTPUT: {result}")
-        
-        # Validar JSON
-        try:
-            parsed = json.loads(result)
-            print("✅ JSON válido")
-            print(f"   Operación: {parsed.get('operacion', 'N/A')}")
-        except:
-            print("❌ JSON inválido")
-
-print("\n=== CONFIGURACIÓN LISTA ===")
-print("🎯 Para iniciar el entrenamiento, ejecuta: start_training()")
-print("📊 Para evaluar después: evaluate_final_model()")
-print("📺 Para TensorBoard: %tensorboard --logdir ./codet5_robotics_finetuned_*/logs")
+if __name__ == "__main__":
+    trained_model, test_result = main()
