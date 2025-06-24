@@ -1,7 +1,7 @@
 matrices_train = [
     {
         "input": "Calculate the transformation matrices for q1=30°, q2=45°, q3=60°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 30, "q2": 45, "q3": 60, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "30", "q2": "45", "q3": "60", "unidad_angular": "grados"}}'
     },
     {
         "input": "I need the T matrices with angles 0.5, 1.2, 0.8 radians",
@@ -9,7 +9,7 @@ matrices_train = [
     },
     {
         "input": "Get T01, T12, T23 and T03 with q1=90°, q2=0°, q3=45°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 90, "q2": 0, "q3": 45, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "90", "q2": "0", "q3": "45", "unidad_angular": "grados"}}'
     },
     {
         "input": "Homogeneous transformation matrices for configuration 1.57, 0, 0.785 rad",
@@ -17,11 +17,11 @@ matrices_train = [
     },
     {
         "input": "I want the T matrices for theta1=45°, theta2=30°, theta3=60°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 45, "q2": 30, "q3": 60, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "45", "q2": "30", "q3": "60", "unidad_angular": "grados"}}'
     },
     {
         "input": "When angle1=20 degrees, angle2=-67 degrees and angle3=0 degrees, what would be the robot transformation matrix calculation?",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 20, "q2": -67, "q3": 0, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "20", "q2": "-67", "q3": "0", "unidad_angular": "grados"}}'
     },
     {
         "input": "Calculate the robot transformation matrices when q1=pi/2, q2=pi and q3=-pi/3",
@@ -33,7 +33,7 @@ matrices_train = [
     },
     {
         "input": "I need the transformation matrices for the following angles in degrees: -25, 89, 6",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": -25, "q2": 89, "q3": 6, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "-25", "q2": "89", "q3": "6", "unidad_angular": "grados"}}'
     },
     {
         "input": "I want to know the T matrices for these angles [pi/3, 6pi/4, -3pi/5]",
@@ -45,7 +45,7 @@ matrices_train = [
     },
     {
         "input": "Calculate transformation matrices for 36°, 72°, 108°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 36, "q2": 72, "q3": 108, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "36", "q2": "72", "q3": "108", "unidad_angular": "grados"}}'
     },
     {
         "input": "Homogeneous matrices for θ1=5π/6, θ2=π/6, θ3=4π/3",
@@ -53,7 +53,7 @@ matrices_train = [
     },
     {
         "input": "I need the T matrices for angles 135°, 225°, 315°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 135, "q2": 225, "q3": 315, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "135", "q2": "225", "q3": "315", "unidad_angular": "grados"}}'
     },
     {
         "input": "Transformations for angular configuration [7π/12, 11π/12, 5π/4] rad",
@@ -61,7 +61,7 @@ matrices_train = [
     },
     {
         "input": "Transformation matrices when q1=84 degrees, q2=168 degrees, q3=252 degrees",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 84, "q2": 168, "q3": 252, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "84", "q2": "168", "q3": "252", "unidad_angular": "grados"}}'
     },
     {
         "input": "Calculation of T matrices for θ1=π/8, θ2=7π/8, θ3=3π/2",
@@ -69,7 +69,7 @@ matrices_train = [
     },
     {
         "input": "I want the homogeneous transformation for joints at 54°, 162°, 270°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 54, "q2": 162, "q3": 270, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "54", "q2": "162", "q3": "270", "unidad_angular": "grados"}}'
     },
     {
         "input": "T01, T12, T23, T03 matrices for configuration 13π/12, π/12, 17π/12 radians",
@@ -77,7 +77,7 @@ matrices_train = [
     },
     {
         "input": "Calculate transformations for angles 48°, 96°, 192°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 48, "q2": 96, "q3": 192, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "48", "q2": "96", "q3": "192", "unidad_angular": "grados"}}'
     },
     {
         "input": "Robot transformation matrices for π/5, 3π/5, 6π/5",
@@ -85,7 +85,7 @@ matrices_train = [
     },
     {
         "input": "Homogeneous transformation for theta1=66 degrees, theta2=132 degrees, theta3=198 degrees",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 66, "q2": 132, "q3": 198, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "66", "q2": "132", "q3": "198", "unidad_angular": "grados"}}'
     },
     {
         "input": "T matrices for angular configuration 9π/16, 3π/16, 15π/16 rad",
@@ -93,7 +93,7 @@ matrices_train = [
     },
     {
         "input": "Calculate the transformation matrices for 78°, 156°, 234°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 78, "q2": 156, "q3": 234, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "78", "q2": "156", "q3": "234", "unidad_angular": "grados"}}'
     },
     {
         "input": "Homogeneous matrices when angles are 2π/9, 4π/9, 8π/9 radians",
@@ -101,7 +101,7 @@ matrices_train = [
     },
     {
         "input": "Transformations for joint1=42°, joint2=126°, joint3=294°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 42, "q2": 126, "q3": 294, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "42", "q2": "126", "q3": "294", "unidad_angular": "grados"}}'
     },
     {
         "input": "T matrices of the robotic arm for θ1=11π/16, θ2=5π/16, θ3=13π/16",
@@ -109,7 +109,7 @@ matrices_train = [
     },
     {
         "input": "Calculate the matrices for configuration 93°, 186°, 279°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 93, "q2": 186, "q3": 279, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "93", "q2": "186", "q3": "279", "unidad_angular": "grados"}}'
     },
     {
         "input": "Transformation matrices for angles 4π/7, 2π/7, 6π/7 rad",
@@ -117,6 +117,6 @@ matrices_train = [
     },
     {
         "input": "Homogeneous transformation of the manipulator for 21°, 105°, 189°",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 21, "q2": 105, "q3": 189, "unidad_angular": "grados"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "21", "q2": "105", "q3": "189", "unidad_angular": "grados"}}'
     }
 ]
