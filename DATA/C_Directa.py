@@ -1,7 +1,7 @@
 cinematica_directa_train = [
     {
         "input": "Direct kinematics with q1=1.57 rad, q2=0.785 rad, q3=0 rad",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": 1.57, "q2": 0.785, "q3": 0, "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.57", "q2": "0.785", "q3": "0", "unidad_angular": "radianes"}}'
     },
     {
         "input": "Calculate the end effector position with angles 30°, 45°, 60°",
@@ -13,7 +13,7 @@ cinematica_directa_train = [
     },
     {
         "input": "End effector position for theta1=0.5, theta2=1.2, theta3=0.8 radians",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": 0.5, "q2": 1.2, "q3": 0.8, "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.5", "q2": "1.2", "q3": "0.8", "unidad_angular": "radianes"}}'
     },
     {
         "input": "What is the robot position with this configuration [pi/2, pi, -pi] in rad?",
@@ -25,7 +25,7 @@ cinematica_directa_train = [
     },
     {
         "input": "Calculate the forward kinematics when angle1=pi/8, angle2=0, angle3=-3pi/2",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/8", "q2": 0, "q3": "-3*np.pi/2", "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/8", "q2": "0", "q3": "-3*np.pi/2", "unidad_angular": "radianes"}}'
     },
     {
         "input": "What is the forward geometric model for q1=29, q2=90 and q3=-56 degrees",
@@ -33,7 +33,7 @@ cinematica_directa_train = [
     },
     {
         "input": "I want to know the forward geometric model when angle1=8*pi, angle2=-7pi/3 and angle3=7pi/8",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "8*np.pi", "q2": "-7*pi/3", "q3": "7*np.pi/8", "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "8*np.pi", "q2": "-7*np.pi/3", "q3": "7*np.pi/8", "unidad_angular": "radianes"}}'
     },
     {
         "input": "When the first robot angle is 34 degrees, the second 56 and the last -3 what is the final robot position?",

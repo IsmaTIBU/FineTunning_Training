@@ -5,7 +5,7 @@ jacobiano_train = [
    },
    {
        "input": "Jacobian for angles 0.5, 1.2, 0.8 rad and angular velocities 1, 2, 1.5 rad/s",
-       "output": '{"operacion": "jacobiano", "parametros": {"q1": 0.5, "q2": 1.2, "q3": 0.8, "unidad_angular": "radianes", "q1_dot": 1, "q2_dot": 2, "q3_dot": 1.5, "unidad_velocidad": "rad/s"}}'
+       "output": '{"operacion": "jacobiano", "parametros": {"q1": "0.5", "q2": "1.2", "q3": "0.8", "unidad_angular": "radianes", "q1_dot": 1, "q2_dot": 2, "q3_dot": 1.5, "unidad_velocidad": "rad/s"}}'
    },
    {
        "input": "I need the jacobian with configuration 90°, 45°, 0° and velocities 0.5, 1, 2 rad/s",

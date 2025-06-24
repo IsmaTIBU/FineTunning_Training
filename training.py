@@ -29,9 +29,9 @@ print(f"   • Test: {len(test_data)} examples")
 # CONFIGURATION FOR A100 (THIS WAS MISSING)
 CONFIG = {
     'model_name': 'Salesforce/codet5-base',      #'google-t5/t5-base'
-    'batch_size': 6,        # Conservative for small dataset
+    'batch_size': 4,        # Conservative for small dataset
     'learning_rate': 5e-5,
-    'epochs': 25,
+    'epochs': 9,
     'max_length': 256,
     'device': 'cuda'
 }

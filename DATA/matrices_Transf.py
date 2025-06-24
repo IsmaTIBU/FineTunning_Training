@@ -5,7 +5,7 @@ matrices_train = [
     },
     {
         "input": "I need the T matrices with angles 0.5, 1.2, 0.8 radians",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 0.5, "q2": 1.2, "q3": 0.8, "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "0.5", "q2": "1.2", "q3": "0.8", "unidad_angular": "radianes"}}'
     },
     {
         "input": "Get T01, T12, T23 and T03 with q1=90°, q2=0°, q3=45°",
@@ -13,7 +13,7 @@ matrices_train = [
     },
     {
         "input": "Homogeneous transformation matrices for configuration 1.57, 0, 0.785 rad",
-        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": 1.57, "q2": 0, "q3": 0.785, "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "1.57", "q2": "0", "q3": "0.785", "unidad_angular": "radianes"}}'
     },
     {
         "input": "I want the T matrices for theta1=45°, theta2=30°, theta3=60°",

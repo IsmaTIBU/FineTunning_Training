@@ -6,6 +6,7 @@ import json
 import random
 import os
 import sys
+import re
 
 # Setup
 sys.path.append('/content/PRUEBA')
@@ -55,7 +56,10 @@ def create_python_file(data, filename, variable_name):
     
     for item in data:
         input_str = repr(item['input'])
-        output_str = repr(item['output'])
+
+        output_clean = re.sub(r':\s*,', ': "",', item['output'])
+        output_clean = re.sub(r':\s*}', ': ""}', output_clean)
+        output_str = repr(output_clean)
         
         content += f'''    {{
         "input": {input_str},
