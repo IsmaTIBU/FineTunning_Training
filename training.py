@@ -29,9 +29,9 @@ print(f"   • Test: {len(test_data)} ejemplos")
 # CONFIGURACIÓN PARA A100 (ESTO FALTABA)
 CONFIG = {
     'model_name': 'Salesforce/codet5-base',
-    'batch_size': 4,        # Conservador para dataset pequeño
-    'learning_rate': 1e-4,
-    'epochs': 10,
+    'batch_size': 8,        # Conservador para dataset pequeño
+    'learning_rate': 2e-5,
+    'epochs': 11,
     'max_length': 256,
     'device': 'cuda'
 }
@@ -240,7 +240,6 @@ for i, test_input in enumerate(test_examples):
       print("❌ DIFERENCIAS ENCONTRADAS")
       bad=bad+1
     total=total+1
-print(f"\n📊Performance del modelo\nCasos perfectos: {perfect/total}, ({(perfect/total)*100}%)\nCasos malos: {bad/total}, ({(bad/total)*100}%)")
 
 # Guardar modelo final
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
@@ -254,4 +253,6 @@ print(f"\n📊 RESUMEN:")
 for h in training_history:
     print(f"   Época {h['epoch']}: Train={h['train_loss']:.4f}, Val={h['val_loss']:.4f}")
     
+print(f"\n📊Performance del modelo\nCasos perfectos: {perfect}, ({(perfect/total)*100}%)\nCasos malos: {bad}, ({(bad/total)*100}%)")
+
 print(f"\n🚀 Modelo entrenado y listo para usar!")
