@@ -30,8 +30,8 @@ print(f"   • Test: {len(test_data)} examples")
 CONFIG = {
     'model_name': 'Salesforce/codet5-base',
     'batch_size': 6,        # Conservative for small dataset
-    'learning_rate': 5e-5,  #5.2
-    'epochs': 7, #20
+    'learning_rate': 4e-5,  #5.2
+    'epochs': 10, #20
     'max_length': 256,
     'device': 'cuda'
 }
