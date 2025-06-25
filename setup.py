@@ -23,9 +23,9 @@ random.shuffle(all_data)
 
 # Calcular tamaños de división: 70% train, 15% val, 15% test
 total_size = len(all_data)
-train_size = int(0.70 * total_size)
-val_size = int(0.15 * total_size)
-test_size = total_size - train_size - val_size
+train_size = int(0.80 * total_size)
+test_size = int(0.01 * total_size)
+val_size = total_size - train_size - test_size
 
 print(f"📈 División de datos:")
 print(f"   • Train: {train_size} ejemplos (70%)")

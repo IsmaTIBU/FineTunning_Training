@@ -28,10 +28,10 @@ print(f"   • Test: {len(test_data)} examples")
 
 # CONFIGURATION FOR A100 (THIS WAS MISSING)
 CONFIG = {
-    'model_name': 'Salesforce/codet5-base',      #'google-t5/t5-base'
-    'batch_size': 4,        # Conservative for small dataset
+    'model_name': 'google-t5/t5-base',      #'Salesforce/codet5-base'
+    'batch_size': 6,        # Conservative for small dataset
     'learning_rate': 5e-5,
-    'epochs': 9,
+    'epochs': 25,
     'max_length': 256,
     'device': 'cuda'
 }
@@ -349,18 +349,18 @@ print(f"\n🔍 CASE-BY-CASE COMPARISON:")
 print("-" * 80)
 
 for i in range(len(test_data)):
-    # base_case = base_results['detailed_results'][i]
+    base_case = base_results['detailed_results'][i]
     trained_case = trained_results['detailed_results'][i]
     
-    # print(f"\nTest {i+1}: {base_case['input'][:50]}...")
-    # print(f"   Base model:    {'✅' if base_case['is_perfect'] else '❌'} Perfect | {'✅' if base_case['is_valid_json'] else '❌'} JSON")
+    print(f"\nTest {i+1}: {base_case['input'][:50]}...")
+    print(f"   Base model:    {'✅' if base_case['is_perfect'] else '❌'} Perfect | {'✅' if base_case['is_valid_json'] else '❌'} JSON")
     print(f"   Trained model: {'✅' if trained_case['is_perfect'] else '❌'} Perfect | {'✅' if trained_case['is_valid_json'] else '❌'} JSON")
     
-    # if base_case['is_perfect'] != trained_case['is_perfect']:
-    #     if trained_case['is_perfect']:
-    #         print(f"   🎉 IMPROVED: Base failed → Trained succeeded")
-    #     else:
-    #         print(f"   ⚠️ DEGRADED: Base succeeded → Trained failed")
+    if base_case['is_perfect'] != trained_case['is_perfect']:
+        if trained_case['is_perfect']:
+            print(f"   🎉 IMPROVED: Base failed → Trained succeeded")
+        else:
+            print(f"   ⚠️ DEGRADED: Base succeeded → Trained failed")
 
 # Save final model
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")
@@ -374,12 +374,35 @@ print(f"\n📊 TRAINING SUMMARY:")
 for h in training_history:
     print(f"   Epoch {h['epoch']}: Train={h['train_loss']:.4f}, Val={h['val_loss']:.4f}")
 
+# =============================================================================
+# PERFORMANCE BY OPERATION TYPE
+# =============================================================================
+print(f"\n📈 PERFORMANCE BY OPERATION TYPE:")
+print("-" * 50)
+
+operation_stats = {}
+for result in trained_results['detailed_results']:
+    try:
+        op = json.loads(result['expected']).get('operacion', 'unknown')
+        if op not in operation_stats:
+            operation_stats[op] = {'perfect': 0, 'total': 0}
+        operation_stats[op]['total'] += 1
+        if result['is_perfect']:
+            operation_stats[op]['perfect'] += 1
+    except:
+        pass
+
+for op, stats in sorted(operation_stats.items()):
+    accuracy = (stats['perfect'] / stats['total']) * 100 if stats['total'] > 0 else 0
+    print(f"   • {op}: {stats['perfect']}/{stats['total']} ({accuracy:.1f}%)")
+
 # Save comparison results to file - MODIFIED FOR TRAINED MODEL ONLY
 comparison_report = {
     'timestamp': timestamp,
     'config': CONFIG,
     # 'base_model_results': base_results,  # Commented out when base model not tested
     'trained_model_results': trained_results,
+    'operation_performance': operation_stats,
     'training_history': training_history,
     # 'improvements': {  # Commented out when no base model comparison
     #     'accuracy': accuracy_improvement,
