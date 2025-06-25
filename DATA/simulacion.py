@@ -377,5 +377,107 @@ simulacion_train = [
     {
         "input": "Render the arm when the first angle is at 5π/4, and the last two are at -π/4 radians",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "5*np.pi/4", "q2": "-np.pi/4", "q3": "-np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    # Correccion 4 pt1
+    {
+        "input": "Show me what happens when I set the joints to 45, 90, and 135 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me the robot configuration with angles 72, 144, and 216 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "72", "q2": "144", "q3": "216", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show the 3D model when joints are positioned at π/6, π/3, and π/2 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/6", "q2": "np.pi/3", "q3": "np.pi/2", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me how the robot looks with motor angles 30, 60, and 120 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "30", "q2": "60", "q3": "120", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show the arm visualization with rotations 2π/3, π/4, and 5π/6 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "2*np.pi/3", "q2": "np.pi/4", "q3": "5*np.pi/6", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    # Correccion pt2
+    {
+        "input": "Simulate the robot with joint angles 15, 75, and 165 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "15", "q2": "75", "q3": "165", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the arm with motor positions 36, 108, and 252 deg",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "36", "q2": "108", "q3": "252", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display the robot when servo angles are 84, 168, and 336 °",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "84", "q2": "168", "q3": "336", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render the manipulator with axis rotations 27, 81, and 243 grados",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "27", "q2": "81", "q3": "243", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Generate 3D view with stepper angles 51, 102, and 204 degree",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "51", "q2": "102", "q3": "204", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Create simulation with actuator positions 63, 126, and 189 graus",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "63", "q2": "126", "q3": "189", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Build robot model with drive angles 39, 78, and 156 degr",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "39", "q2": "78", "q3": "156", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the arm with encoder values 48, 96, and 192 grd",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "48", "q2": "96", "q3": "192", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Animate robot with joint orientations 21, 42, and 84 dgs",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "21", "q2": "42", "q3": "84", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show mechanical arm with shaft rotations 57, 114, and 228 degs",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "57", "q2": "114", "q3": "228", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Simulate the robot with joint angles π/8, 3π/8, and 5π/8 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/8", "q2": "3*np.pi/8", "q3": "5*np.pi/8", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the arm with motor positions 2π/7, 4π/7, and 6π/7 rad",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "2*np.pi/7", "q2": "4*np.pi/7", "q3": "6*np.pi/7", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display the robot when servo angles are π/12, 7π/12, and 11π/12 radian",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/12", "q2": "7*np.pi/12", "q3": "11*np.pi/12", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render the manipulator with axis rotations 3π/10, 7π/10, and 9π/10 radianes",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "3*np.pi/10", "q2": "7*np.pi/10", "q3": "9*np.pi/10", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Generate 3D view with stepper angles π/15, 8π/15, and 14π/15 rads",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/15", "q2": "8*np.pi/15", "q3": "14*np.pi/15", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Create simulation with actuator positions π/9, 4π/9, and 8π/9 radiant",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/9", "q2": "4*np.pi/9", "q3": "8*np.pi/9", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Build robot model with drive angles 5π/12, π/4, and 7π/12 radns",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "5*np.pi/12", "q2": "np.pi/4", "q3": "7*np.pi/12", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the arm with encoder values 2π/11, 9π/11, and 6π/11 rdns",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "2*np.pi/11", "q2": "9*np.pi/11", "q3": "6*np.pi/11", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Animate robot with joint orientations π/16, 9π/16, and 15π/16 rdn",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/16", "q2": "9*np.pi/16", "q3": "15*np.pi/16", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show mechanical arm with shaft rotations 4π/3, π/6, and 5π/4 radianss",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "4*np.pi/3", "q2": "np.pi/6", "q3": "5*np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     }
 ]
