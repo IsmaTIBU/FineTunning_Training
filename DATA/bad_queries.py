@@ -4,6 +4,10 @@ bad_queries = [
         "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
     },
     {
+        "input": "How do I calculate the position of my robotic arm?",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
         "input": "I need help with my robot calculations",
         "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
     },
@@ -456,6 +460,47 @@ bad_queries = [
     },
     {
         "input": "Could you accompany me through robotic computational methods?",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    # Correccion 1
+    {
+        "input": "I'm struggling with position computation for my robotic arm",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Need guidance on calculating manipulator placement accurately",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Position determination is confusing me - any help available?",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Which algorithm works best for robot arm position calculation?",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "My robot's positional analysis isn't working correctly",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Could you assist with workspace position calculations?",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I require help computing the arm's cartesian coordinates",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Trying to understand positional mathematics for robotics",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Robot placement calculation seems overly complex to me",
+        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Looking for assistance with effector coordinate determination",
         "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
     }
 ]

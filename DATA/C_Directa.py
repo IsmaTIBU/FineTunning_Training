@@ -306,6 +306,128 @@ cinematica_directa_train = [
     {
         "input": "Forward kinematics for axis positions 2.0, 1.0, 3.8 rad",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.0", "q2": "1.0", "q3": "3.8", "unidad_angular": "radianes"}}'
+    },
+    # Correccion 4
+    {
+        "input": "What's the robot position when the motors are at 2.1, 0.9, 1.7 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.1", "q2": "0.9", "q3": "1.7", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the end effector position with motors set to 45°, 90°, 135°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What position does the robot reach when motors are at π/4, π/2, 3π/4 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/4", "q2": "np.pi/2", "q3": "3*np.pi/4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Find the robot's position when all motors are positioned at 60°, 120°, 180°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "60", "q2": "120", "q3": "180", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "I need to know the final position with motors at 1.2, 0.8, 1.5 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.2", "q2": "0.8", "q3": "1.5", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the arm position when the three motors are set to 30°, 75°, 150°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "30", "q2": "75", "q3": "150", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate robot position with motors configured at π/6, 2π/3, 5π/6 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/6", "q2": "2*np.pi/3", "q3": "5*np.pi/6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Where is the end effector position when motors read 72°, 144°, 216°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "72", "q2": "144", "q3": "216", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Tell me the robot position when motors are running at 0.5, 1.8, 2.3 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.5", "q2": "1.8", "q3": "2.3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the final position with motors adjusted to 15°, 45°, 90°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "15", "q2": "45", "q3": "90", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Get the arm position when motors are positioned at π/8, 3π/8, 7π/8 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/8", "q2": "3*np.pi/8", "q3": "7*np.pi/8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Show me the robot position with motors turned to 84°, 168°, 252°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "84", "q2": "168", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What position will the robot be in when motors are at 2.7, 1.4, 0.6 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.7", "q2": "1.4", "q3": "0.6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the manipulator position when motors are set to 36°, 108°, 252°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "36", "q2": "108", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Determine the end position when all motors reach π/3, 4π/3, 2π/3 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/3", "q2": "4*np.pi/3", "q3": "2*np.pi/3", "unidad_angular": "radianes"}}'
+    },
+    # Correccion 5
+    {
+        "input": "Urgent! Need to know where my robot arm points when joints are at 1.8, 0.6, 2.4 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.8", "q2": "0.6", "q3": "2.4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the end effector position when joints are set to 45°, 90°, 135°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Where does the robot point when all joints are positioned at π/4, π/2, 3π/4 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/4", "q2": "np.pi/2", "q3": "3*np.pi/4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Find the robot's final position with joints configured to 60°, 120°, 180°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "60", "q2": "120", "q3": "180", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What's the end position when joints rotate to 2.1, 0.9, 1.7 rad?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.1", "q2": "0.9", "q3": "1.7", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Tell me where the arm reaches when joints are at 30°, 75°, 150°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "30", "q2": "75", "q3": "150", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate forward kinematics with joints positioned at π/6, 2π/3, 5π/6 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/6", "q2": "2*np.pi/3", "q3": "5*np.pi/6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "I need the robot position when joints are adjusted to 72°, 144°, 216°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "72", "q2": "144", "q3": "216", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Show me where the manipulator goes when joints move to 0.5, 1.8, 2.3 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.5", "q2": "1.8", "q3": "2.3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the end effector location with joints turned to 15°, 45°, 90°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "15", "q2": "45", "q3": "90", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Determine the arm position when joints are set to π/8, 3π/8, 7π/8 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/8", "q2": "3*np.pi/8", "q3": "7*np.pi/8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Where will the robot end up with joints rotated to 84°, 168°, 252°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "84", "q2": "168", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate the final position when joints reach 2.7, 1.4, 0.6 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.7", "q2": "1.4", "q3": "0.6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Get the robot coordinates when joints are oriented at 36°, 108°, 252°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "36", "q2": "108", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Find where the end effector points when joints are locked at π/3, 4π/3, 2π/3 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/3", "q2": "4*np.pi/3", "q3": "2*np.pi/3", "unidad_angular": "radianes"}}'
     }
 ]
 

@@ -118,6 +118,87 @@ frases_angulos_sin_operacion = [
     {
         "input": "What about the system using angular positions 69°, 138°, 276°?",
         "output": '{"operacion": "", "parametros": {"q1": "69", "q2": "138", "q3": "276", "unidad_angular": "grados"}}'
+    },
+    # Correccion 1
+    {
+        "input": "What if I set angle1=45°, angle2=90°, angle3=135°?",
+        "output": '{"operacion": "", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Consider angle1=30 degrees, angle2=60 degrees, angle3=120 degrees",
+        "output": '{"operacion": "", "parametros": {"q1": "30", "q2": "60", "q3": "120", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Let's try angle1=72°, angle2=144°, angle3=216°",
+        "output": '{"operacion": "", "parametros": {"q1": "72", "q2": "144", "q3": "216", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What about angle1=15 deg, angle2=75 deg, angle3=165 deg?",
+        "output": '{"operacion": "", "parametros": {"q1": "15", "q2": "75", "q3": "165", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Suppose angle1=84°, angle2=168°, angle3=252°",
+        "output": '{"operacion": "", "parametros": {"q1": "84", "q2": "168", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "I'm thinking angle1=36 degrees, angle2=108 degrees, angle3=324 degrees",
+        "output": '{"operacion": "", "parametros": {"q1": "36", "q2": "108", "q3": "324", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "How about angle1=63°, angle2=126°, angle3=189°?",
+        "output": '{"operacion": "", "parametros": {"q1": "63", "q2": "126", "q3": "189", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Maybe angle1=27 deg, angle2=81 deg, angle3=243 deg",
+        "output": '{"operacion": "", "parametros": {"q1": "27", "q2": "81", "q3": "243", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Let me try angle1=51°, angle2=102°, angle3=204°",
+        "output": '{"operacion": "", "parametros": {"q1": "51", "q2": "102", "q3": "204", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What happens with angle1=39 degrees, angle2=78 degrees, angle3=156 degrees?",
+        "output": '{"operacion": "", "parametros": {"q1": "39", "q2": "78", "q3": "156", "unidad_angular": "grados"}}'
+    },    
+    {
+        "input": "What if I set angle1=pi/6, angle2=pi/3, angle3=pi/2?",
+        "output": '{"operacion": "", "parametros": {"q1": "np.pi/6", "q2": "np.pi/3", "q3": "np.pi/2", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Consider angle1=π/4, angle2=π/2, angle3=3π/4 radians",
+        "output": '{"operacion": "", "parametros": {"q1": "np.pi/4", "q2": "np.pi/2", "q3": "3*np.pi/4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Let's try angle1=2π/3, angle2=π/12, angle3=7π/12",
+        "output": '{"operacion": "", "parametros": {"q1": "2*np.pi/3", "q2": "np.pi/12", "q3": "7*np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What about angle1=π/8 rad, angle2=3π/8 rad, angle3=5π/8 rad?",
+        "output": '{"operacion": "", "parametros": {"q1": "np.pi/8", "q2": "3*np.pi/8", "q3": "5*np.pi/8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Suppose angle1=5π/6, angle2=π/6, angle3=4π/3",
+        "output": '{"operacion": "", "parametros": {"q1": "5*np.pi/6", "q2": "np.pi/6", "q3": "4*np.pi/3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "I'm thinking angle1=π/10 radians, angle2=9π/10 radians, angle3=2π/5 radians",
+        "output": '{"operacion": "", "parametros": {"q1": "np.pi/10", "q2": "9*np.pi/10", "q3": "2*np.pi/5", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "How about angle1=7π/12, angle2=π/12, angle3=11π/12?",
+        "output": '{"operacion": "", "parametros": {"q1": "7*np.pi/12", "q2": "np.pi/12", "q3": "11*np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Maybe angle1=3π/8 rad, angle2=π/4 rad, angle3=9π/8 rad",
+        "output": '{"operacion": "", "parametros": {"q1": "3*np.pi/8", "q2": "np.pi/4", "q3": "9*np.pi/8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Let me try angle1=π/16, angle2=9π/16, angle3=15π/16",
+        "output": '{"operacion": "", "parametros": {"q1": "np.pi/16", "q2": "9*np.pi/16", "q3": "15*np.pi/16", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What happens with angle1=2π/7 radians, angle2=4π/7 radians, angle3=6π/7 radians?",
+        "output": '{"operacion": "", "parametros": {"q1": "2*np.pi/7", "q2": "4*np.pi/7", "q3": "6*np.pi/7", "unidad_angular": "radianes"}}'
     }
 ]
 

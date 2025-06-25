@@ -399,7 +399,7 @@ simulacion_train = [
         "input": "Show the arm visualization with rotations 2π/3, π/4, and 5π/6 radians",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "2*np.pi/3", "q2": "np.pi/4", "q3": "5*np.pi/6", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
-    # Correccion pt2
+    # pt2
     {
         "input": "Simulate the robot with joint angles 15, 75, and 165 degrees",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "15", "q2": "75", "q3": "165", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
@@ -479,5 +479,280 @@ simulacion_train = [
     {
         "input": "Show mechanical arm with shaft rotations 4π/3, π/6, and 5π/4 radianss",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "4*np.pi/3", "q2": "np.pi/6", "q3": "5*np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    # Correccion 5
+    {
+        "input": "I want to see my robot in 3D when it reaches coordinates (0.75, 1.25, 1.75) meters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "0.75", "y": "1.25", "z": "1.75", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Can I see a 3D visualization at position (450, 680, 920) mm?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "450", "y": "680", "z": "920", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show me the 3D model when the effector is at (35, 70, 105) cm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "35", "y": "70", "z": "105", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I'd like to see how it looks when positioned at (1.8, 2.4, 3.2) meters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1.8", "y": "2.4", "z": "3.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Display the robot in 3D at coordinates (250, 500, 750) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "250", "y": "500", "z": "750", "unidad_posicion": "mm"}}}'
+    },
+    
+    # Frases con ángulos específicos
+    {
+        "input": "Let me see the 3D view with angles 45°, 90°, 135°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I want to see what happens in 3D with joints at π/4, π/2, 3π/4 rad",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/4", "q2": "np.pi/2", "q3": "3*np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me a 3D representation with configuration 72°, 144°, 216°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "72", "q2": "144", "q3": "216", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Can I see how the robot looks in 3D when set to 1.2, 0.8, 1.5 radians?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "1.2", "q2": "0.8", "q3": "1.5", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I'd love to see the 3D model with angles 30°, 60°, 120°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "30", "q2": "60", "q3": "120", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases mixtas y variadas
+    {
+        "input": "Generate a 3D scene so I can see the robot at (12, 24, 36) cm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "12", "y": "24", "z": "36", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I need to see what the 3D visualization looks like at position (890, 1340, 670) mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "890", "y": "1340", "z": "670", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Could you show me a 3D render so I can see the arm at coordinates (2.1, 3.5, 1.8) meters?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "2.1", "y": "3.5", "z": "1.8", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I want to see the robot in 3D space when joints are at π/6, 5π/6, π/3 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/6", "q2": "5*np.pi/6", "q3": "np.pi/3", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Let me see how it appears in 3D when positioned at (55, 110, 165) centimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "55", "y": "110", "z": "165", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Create a 3D model so I can see the manipulator with angles 84°, 168°, 252°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "84", "q2": "168", "q3": "252", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I'd like to see a 3D view of the robot reaching (420, 840, 1260) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "420", "y": "840", "z": "1260", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show me the 3D simulation so I can see what happens at 2.7, 1.4, 0.6 rad",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "2.7", "q2": "1.4", "q3": "0.6", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I want to see the robot in 3D when it's at coordinates (0.95, 1.15, 1.35) m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "0.95", "y": "1.15", "z": "1.35", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Can I see how the 3D model looks when configured to 15°, 75°, 165°?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "15", "q2": "75", "q3": "165", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     }
 ]
+
+simulacion_NoValues = [
+    # Frases cortas y directas
+    {
+        "input": "Simulate it",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me the simulation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "How would it look?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize this",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Run simulation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases casuales y naturales
+    {
+        "input": "Can you show me what this looks like in 3D?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I want to see how my robot would appear",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Could you render this for me?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What would this configuration look like?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Let me see the visual representation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases conversacionales largas
+    {
+        "input": "I'm curious to see how my robotic arm would look in this position, can you simulate it?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Hey, would it be possible to get a 3D view of what we're working with here?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Mind showing me what this setup would actually look like in real life?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I'd love to see a virtual model of how the robot is positioned right now",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Can you give me a visual of what's happening with the manipulator?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Variaciones técnicas
+    {
+        "input": "Generate a 3D visualization of the current state",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Execute visual simulation protocol",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render the workspace visualization",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Initiate 3D model generation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display spatial configuration analysis",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases de pregunta/curiosidad
+    {
+        "input": "What does it look like from this angle?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "How does the robot appear in this setup?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Can I get a preview of what this looks like?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What would the end result look like visually?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Is there a way to see this in action?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases con contexto emocional
+    {
+        "input": "I'm having trouble picturing this, could you show me?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "This is confusing me, I need a visual",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I'm excited to see how this turns out!",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Honestly, I have no idea what this would look like",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Help me understand this by showing me the visualization",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Variaciones informales
+    {
+        "input": "Gimme the visual",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me what we got",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Let's see it in action",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Hit me with the simulation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Fire up the 3D view",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases de proceso/workflow
+    {
+        "input": "Next step: show me the visualization",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Now let's see what this looks like",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Time to visualize this setup",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Ready for the 3D representation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Final step: render the simulation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    
+    # Frases de validación/verificación
+    {
+        "input": "I need to verify this visually",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Let me double-check by seeing the simulation",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    }
+]
+
+simulation_train = simulacion_train + simulacion_NoValues

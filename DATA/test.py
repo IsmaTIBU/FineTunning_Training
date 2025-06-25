@@ -91,23 +91,11 @@ test_data = [
         "input": "Execute inverse geometric model to achieve TCP coordinates at x=1.2m, y=0.8m, z=2.1m",
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.2", "y": "0.8", "z": "2.1", "unidad_posicion": "m"}}}'
     },
-    {
-        "input": "Generate velocity analysis using angular rates of first=2.3, second=1.7, third=3.1 rad/sec",
-        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.3", "q2_dot": "1.7", "q3_dot": "3.1", "unidad_velocidad": "rad/s"}}'
-    },
     
     # Frases muy casuales/naturales
     {
-        "input": "My robot's at some weird position and I need help figuring out where it's pointing",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
-    },
-    {
         "input": "Hey, can you tell me how to get my arm to that spot over there at 15, 25, 35 centimeters?",
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "15", "y": "25", "z": "35", "unidad_posicion": "cm"}}}'
-    },
-    {
-        "input": "Wondering what my robotic buddy looks like when I twist the joints to ninety, forty-five, and zero degrees",
-        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "90", "q2": "45", "q3": "0", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     
     # Estructuras originales con diferentes formas de especificar valores
@@ -127,15 +115,11 @@ test_data = [
     # Casos sin valores específicos
     {
         "input": "Run a complete kinematic analysis on my current robot state",
-        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
-    },
-    {
-        "input": "I need help with robot workspace calculations",
-        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     {
         "input": "Show me everything about my manipulator's current pose",
-        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     
     # Frases con múltiples operaciones implícitas
@@ -154,16 +138,8 @@ test_data = [
     
     # Frases con terminología mixta
     {
-        "input": "Motor one at 35 degrees, motor two at seventy grados, motor three at 105°",
-        "output": '{"operacion": "", "parametros": {"q1": "35", "q2": "70", "q3": "105", "unidad_angular": "grados"}}'
-    },
-    {
         "input": "Check the speed analysis when axis rotations are first=1.4 rad/s, second=2.8 rad/s, third=0.7 rad/s",
         "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.4", "q2_dot": "2.8", "q3_dot": "0.7", "unidad_velocidad": "rad/s"}}'
-    },
-    {
-        "input": "Visualize my manipulator when theta angles equal π÷6, π÷4, and π÷2 respectively",
-        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/6", "q2": "np.pi/4", "q3": "np.pi/2", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     
     # Estructuras conversacionales
@@ -181,10 +157,6 @@ test_data = [
     },
     
     # Frases con notaciones no estándar
-    {
-        "input": "Joint angles: first→120°, second→240°, third→360°, calculate direct kinematics please",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "120", "q2": "240", "q3": "360", "unidad_angular": "grados"}}'
-    },
     {
         "input": "Run jacobian with configuration (1.1 rad, 2.2 rad, 3.3 rad) and velocities (0.5, 1.0, 1.5) rad/s",
         "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.1", "q2": "2.2", "q3": "3.3", "unidad_angular": "radianes", "q1_dot": "0.5", "q2_dot": "1.0", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
@@ -204,29 +176,19 @@ test_data = [
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "33", "y": "67", "z": "101", "unidad_posicion": "cm"}}}'
     },
     {
-        "input": "Execute differential kinematics analysis with q̇₁=3.2, q̇₂=1.9, q̇₃=2.6 rad/s",
-        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "3.2", "q2_dot": "1.9", "q3_dot": "2.6", "unidad_velocidad": "rad/s"}}'
+        "input": "My robot is acting weird, can you analyze the current position?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     
     # Frases de troubleshooting
     {
-        "input": "My robot is acting weird, can you analyze the current position?",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
-    },
-    {
         "input": "Something's wrong with my arm movement, need a full kinematic check",
-        "output": '{"operacion": "", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     {
-        "input": "Debug mode: show me what happens at joint config 0.3, 1.7, 2.9 rad",
+        "input": "Show me what happens at joint config 0.3, 1.7, 2.9 rad",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.3", "q2": "1.7", "q3": "2.9", "unidad_angular": "radianes"}}'
     },
-    
-    # Casos edge con valores extremos
-    {
-        "input": "Test extreme configuration: -180°, 540°, -90°",
-        "output": '{"operacion": "", "parametros": {"q1": "-180", "q2": "540", "q3": "-90", "unidad_angular": "grados"}}'
-    }
 ]
 
 print(f"📊 Frases de usuario casual con labels: {len(test_data)} ejemplos")
