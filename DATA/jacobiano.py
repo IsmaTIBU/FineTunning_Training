@@ -118,5 +118,46 @@ jacobiano_train = [
    {
        "input": "Jacobian matrix for configuration 27°, 81°, 243° with angular velocities 2.3, 1.6, 2.9 radians per second",
        "output": '{"operacion": "jacobiano", "parametros": {"q1": "27", "q2": "81", "q3": "243", "unidad_angular": "grados", "q1_dot": "2.3", "q2_dot": "1.6", "q3_dot": "2.9", "unidad_velocidad": "rad/s"}}'
-   }
+   },
+    # Correccion 1
+    {
+        "input": "Calculate jacobian matrix with angles π/6, 5π/6, π/3 and angular velocities [2.8, 1.4, 3.7] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/6", "q2": "5*np.pi/6", "q3": "np.pi/3", "unidad_angular": "radianes", "q1_dot": "2.8", "q2_dot": "1.4", "q3_dot": "3.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Jacobian computation for joint angles 2π/7, 4π/7, 6π/7 with velocity vector [1.9, 3.2, 0.8] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "2*np.pi/7", "q2": "4*np.pi/7", "q3": "6*np.pi/7", "unidad_angular": "radianes", "q1_dot": "1.9", "q2_dot": "3.2", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find robot jacobian with configuration π/8, 7π/8, 3π/4 and joint velocities [4.1, 2.3, 1.6] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/8", "q2": "7*np.pi/8", "q3": "3*np.pi/4", "unidad_angular": "radianes", "q1_dot": "4.1", "q2_dot": "2.3", "q3_dot": "1.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Jacobian analysis for angular positions π/12, 11π/12, 5π/6 using velocities [0.7, 2.9, 3.4] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/12", "q2": "11*np.pi/12", "q3": "5*np.pi/6", "unidad_angular": "radianes", "q1_dot": "0.7", "q2_dot": "2.9", "q3_dot": "3.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate manipulator jacobian for angles 3π/10, 7π/10, 9π/10 with speed array [3.6, 1.2, 2.8] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "3*np.pi/10", "q2": "7*np.pi/10", "q3": "9*np.pi/10", "unidad_angular": "radianes", "q1_dot": "3.6", "q2_dot": "1.2", "q3_dot": "2.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Jacobian matrix calculation with θ values π/15, 8π/15, 14π/15 and velocity list [2.1, 3.8, 1.5] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/15", "q2": "8*np.pi/15", "q3": "14*np.pi/15", "unidad_angular": "radianes", "q1_dot": "2.1", "q2_dot": "3.8", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Determine jacobian for robot joints at π/9, 4π/9, 8π/9 radians with rotational speeds [1.3, 2.7, 4.2] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/9", "q2": "4*np.pi/9", "q3": "8*np.pi/9", "unidad_angular": "radianes", "q1_dot": "1.3", "q2_dot": "2.7", "q3_dot": "4.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Robot jacobian evaluation at angles 5π/12, π/4, 7π/12 with angular velocity set [3.9, 0.6, 2.4] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "5*np.pi/12", "q2": "np.pi/4", "q3": "7*np.pi/12", "unidad_angular": "radianes", "q1_dot": "3.9", "q2_dot": "0.6", "q3_dot": "2.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Compute jacobian matrix for configuration 2π/11, 9π/11, 6π/11 using joint velocity vector [2.5, 4.0, 1.8] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "2*np.pi/11", "q2": "9*np.pi/11", "q3": "6*np.pi/11", "unidad_angular": "radianes", "q1_dot": "2.5", "q2_dot": "4.0", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Jacobian derivation with motor angles π/16, 9π/16, 15π/16 and velocity parameters [1.7, 3.1, 2.2] rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/16", "q2": "9*np.pi/16", "q3": "15*np.pi/16", "unidad_angular": "radianes", "q1_dot": "1.7", "q2_dot": "3.1", "q3_dot": "2.2", "unidad_velocidad": "rad/s"}}'
+    }    
 ]

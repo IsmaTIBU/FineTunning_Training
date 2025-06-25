@@ -118,5 +118,166 @@ simulacion_train = [
     {
         "input": "Simulate the manipulator for me with target position of the effector at (1350, 1800, 2250) mm",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1350", "y": "1800", "z": "2250", "unidad_posicion": "mm"}}}'
+    },
+    # Correccion 1
+    {
+        "input": "Render the robot in 3D with joint angles 55°, 110°, 275°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "55", "q2": "110", "q3": "275", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Generate a 3D model of the arm positioned at coordinates (890, 1340, 670) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "890", "y": "1340", "z": "670", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Create a visual simulation with theta values of 4π/9, 8π/9, 2π/9 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "4*np.pi/9", "q2": "8*np.pi/9", "q3": "2*np.pi/9", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display a 3D scene where the robot reaches position x=2.7m, y=1.9m, z=3.4m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "2.7", "y": "1.9", "z": "3.4", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Animate the robotic manipulator with configuration 18°, 126°, 234°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "18", "q2": "126", "q3": "234", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Demonstrate the arm reaching target location (44, 88, 132) centimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "44", "y": "88", "z": "132", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Visualize the mechanical arm with joint rotations 3π/7, π/7, 6π/7",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "3*np.pi/7", "q2": "np.pi/7", "q3": "6*np.pi/7", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Model the robot in 3D space when positioned at 567mm, 1234mm, 890mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "567", "y": "1234", "z": "890", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show a virtual representation with motor angles 102°, 204°, 306°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "102", "q2": "204", "q3": "306", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Build a 3D visualization of the end effector at coordinates (1.1, 2.2, 3.3) meters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1.1", "y": "2.2", "z": "3.3", "unidad_posicion": "m"}}}'
+    },
+    # Correccion 2 pt1
+    {
+        "input": "Generate 3D visualization at coordinates (1245, 2360, 3470) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1245", "y": "2360", "z": "3470", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Create robot model positioned at (675, 1125, 1575) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "675", "y": "1125", "z": "1575", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Display 3D arm at coordinates (850, 1700, 2550) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "850", "y": "1700", "z": "2550", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Render manipulator at position (444, 888, 1332) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "444", "y": "888", "z": "1332", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show robot visualization at (333, 666, 999) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "333", "y": "666", "z": "999", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Build 3D model with effector at (1080, 2160, 3240) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1080", "y": "2160", "z": "3240", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Simulate arm positioned at coordinates (925, 1850, 2775) millimeters",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "925", "y": "1850", "z": "2775", "unidad_posicion": "mm"}}}'
+    },
+    # pt2
+    {
+        "input": "Simulate robot with joint configuration (18, 36, 54) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "18", "q2": "36", "q3": "54", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display arm with angles configuration (75, 150, 225) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "75", "q2": "150", "q3": "225", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render robot with joint setup (42, 84, 126) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "42", "q2": "84", "q3": "126", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Generate 3D view with motor angles (33, 66, 99) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "33", "q2": "66", "q3": "99", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show manipulator with angular configuration (27, 54, 81) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "27", "q2": "54", "q3": "81", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize arm with rotation settings (51, 102, 153) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "51", "q2": "102", "q3": "153", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Create robot model with joint positions (39, 78, 117) degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "39", "q2": "78", "q3": "117", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    # pt3
+    {
+        "input": "Display robot positioned at 455mm, 910mm, 1365mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "455", "y": "910", "z": "1365", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show 3D model at coordinates 775mm, 1550mm, 2325mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "775", "y": "1550", "z": "2325", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Generate visualization with effector at 625mm, 1250mm, 1875mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "625", "y": "1250", "z": "1875", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Render arm positioned at 385mm, 770mm, 1155mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "385", "y": "770", "z": "1155", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Build robot model at location 295mm, 590mm, 885mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "295", "y": "590", "z": "885", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Create 3D scene at coordinates 715mm, 1430mm, 2145mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "715", "y": "1430", "z": "2145", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Simulate manipulator positioned at 165mm, 330mm, 495mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "165", "y": "330", "z": "495", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Visualize robot arm at coordinates 845mm, 1690mm, 2535mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "845", "y": "1690", "z": "2535", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Display 3D model with end effector at 525mm, 1050mm, 1575mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "525", "y": "1050", "z": "1575", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Show robot visualization at position 995mm, 1990mm, 2985mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "995", "y": "1990", "z": "2985", "unidad_posicion": "mm"}}}'
+    },
+    # pt4
+    {
+        "input": "Simulate robot with joint angles 24°, 48°, 72°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "24", "q2": "48", "q3": "72", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display arm with motor rotations 63°, 126°, 189°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "63", "q2": "126", "q3": "189", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render manipulator with joint configuration 87°, 174°, 261°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "87", "q2": "174", "q3": "261", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Generate 3D view with angles 21°, 42°, 63°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "21", "q2": "42", "q3": "63", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show robot with angular positions 48°, 96°, 144°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "48", "q2": "96", "q3": "144", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     }
 ]

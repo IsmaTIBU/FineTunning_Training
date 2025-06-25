@@ -118,5 +118,128 @@ cinematica_inversa_train = [
    {
        "input": "What would be the robot configuration for target position (1.3, 1.7, 2.1) meters?",
        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.3", "y": "1.7", "z": "2.1", "unidad_posicion": "m"}}}'
-   }
+   },
+    # Correccion 1    
+   {
+        "input": "Calculate the angles for the effector to reach 45cm, 78cm, 12cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "45", "y": "78", "z": "12", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What joint angles are needed to reach position 150mm, 275mm, 400mm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "150", "y": "275", "z": "400", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Find the robot configuration to reach point (3.2, 4.1, 5.0) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "3.2", "y": "4.1", "z": "5.0", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Calculate angles for the manipulator to reach coordinates 65, 76, 87 centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "65", "y": "76", "z": "87", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What angles does the robot need to position the end effector at (2.1, 3.5, 1.8) m?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.1", "y": "3.5", "z": "1.8", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Determine joint angles for end effector position 89mm, 156mm, 234mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "89", "y": "156", "z": "234", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate the robot angles to place the effector at coordinates (1.7, 2.9, 0.4) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.7", "y": "2.9", "z": "0.4", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "What configuration is needed for the end effector to be at 33cm, 67cm, 101cm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "33", "y": "67", "z": "101", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Find joint angles to move the robotic arm to position (445, 667, 889) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "445", "y": "667", "z": "889", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate the angles for the arm to reach target coordinates x=0.8, y=1.6, z=2.4 meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.8", "y": "1.6", "z": "2.4", "unidad_posicion": "m"}}}'
+    },
+    # Correccion 2 pt1
+    {
+        "input": "Calculate joint angles to reach x=125, y=375, z=625 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "125", "y": "375", "z": "625", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "What robot configuration reaches target x=88, y=176, z=264 millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "88", "y": "176", "z": "264", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Find angles for end effector position x=550, y=750, z=950 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "550", "y": "750", "z": "950", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Inverse kinematics when target is x=99, y=198, z=297 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "99", "y": "198", "z": "297", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate robot angles to place effector at x=444, y=666, z=888 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "444", "y": "666", "z": "888", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "What configuration moves the arm to x=77, y=154, z=231 millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "77", "y": "154", "z": "231", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Determine joint angles for target position x=333, y=555, z=777 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "333", "y": "555", "z": "777", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Inverse kinematics to reach coordinates x=112, y=224, z=336 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "112", "y": "224", "z": "336", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate angles for manipulator at location x=165, y=330, z=495 millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "165", "y": "330", "z": "495", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "What joint configuration reaches point x=222, y=444, z=666 millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "222", "y": "444", "z": "666", "unidad_posicion": "mm"}}}'
+    },
+    # pt2
+    {
+        "input": "Inverse kinematics of the arm for coordinates 455cm, 685cm, 915cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "455", "y": "685", "z": "915", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate angles for robotic arm at coordinates 123mm, 456mm, 789mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "123", "y": "456", "z": "789", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "What configuration for manipulator coordinates 6m, 80m, 100m?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "6", "y": "80", "z": "100", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Joint angles needed for effector coordinates 75mm, 150mm, 225mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "75", "y": "150", "z": "225", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Inverse kinematics when robot coordinates are 35cm, 52cm, 70cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "35", "y": "52", "z": "70", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate robot configuration for target coordinates 1.4m, 2.8mm, 4.3m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.4", "y": "2.8", "z": "4.3", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "What angles reach the coordinates 66mm, 132mm, 198mm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "66", "y": "132", "z": "198", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Find joint angles for arm coordinates 25cm, 37.5cm, 50cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "25", "y": "37.5", "z": "50", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Inverse kinematics for manipulator coordinates 0.72m, 0.96m, 1.20m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.72", "y": "0.96", "z": "1.20", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Calculate angles when effector coordinates are 185mm, 370mm, 555mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "185", "y": "370", "z": "555", "unidad_posicion": "mm"}}}'
+    }
 ]

@@ -52,7 +52,7 @@ cinematica_directa_train = [
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2*np.pi", "q2": "np.pi/2", "q3": "-np.pi/4", "unidad_angular": "radianes"}}'
     },
     {
-        "input": "Where will the end effector be if angle1=120 grad, angle2=60 grad, angle3=180 grad?",
+        "input": "Where will the end effector be if angle1=120 deg, angle2=60 deg, angle3=180 deg?",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "120", "q2": "60", "q3": "180", "unidad_angular": "grados"}}'
     },
     {
@@ -92,7 +92,7 @@ cinematica_directa_train = [
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "4*np.pi/3", "q2": "np.pi/6", "q3": "5*np.pi/4", "unidad_angular": "radianes"}}'
     },
     {
-        "input": "End effector final position with theta1=150 grad, theta2=210 grad, theta3=330 grad",
+        "input": "End effector final position with theta1=150 deg, theta2=210 deg, theta3=330 deg",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "150", "q2": "210", "q3": "330", "unidad_angular": "grados"}}'
     },
     {
@@ -118,5 +118,112 @@ cinematica_directa_train = [
     {
         "input": "Forward geometric model when the three robot angles are respectively 84°, 156°, 228°",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "84", "q2": "156", "q3": "228", "unidad_angular": "grados"}}'
+    },
+    # Correccion 1
+    {
+        "input": "Calculate the forward kinematics when angle1=pi/8, angle2=0, angle3=-3pi/2",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/8", "q2": "0", "q3": "-3*np.pi/2", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "End effector final position with theta1=150 degrees, theta2=210 degrees, theta3=330 degrees",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "150", "q2": "210", "q3": "330", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Direct kinematics of the robotic arm with 7π/6, -π/3, 11π/6 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "7*np.pi/6", "q2": "-np.pi/3", "q3": "11*np.pi/6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What is the end effector position when q1=45 degrees, q2=90 degrees, q3=135 degrees?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "45", "q2": "90", "q3": "135", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Forward geometric model when angle1=2π/3, angle2=π/4, angle3=5π/6 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2*np.pi/3", "q2": "np.pi/4", "q3": "5*np.pi/6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the end effector position with joint angles 25°, 85°, 165°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "25", "q2": "85", "q3": "165", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Direct kinematics calculation with theta1=3π/8, theta2=7π/8, theta3=π/2 in radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3*np.pi/8", "q2": "7*np.pi/8", "q3": "np.pi/2", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Where is the end effector when the robot angles are 72 degrees, 144 degrees, 288 degrees?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "72", "q2": "144", "q3": "288", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Which are the forward kinematics with joint configuration π/6, 5π/12, 11π/12 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/6", "q2": "5*np.pi/12", "q3": "11*np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What is the robot end effector position when q1=240°, q2=300°, q3=60°?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "240", "q2": "300", "q3": "60", "unidad_angular": "grados"}}'
+    },
+    # Correccion 2 pt1
+    {
+        "input": "Calculate forward kinematics when angle1=2*pi, angle2=-pi/4, angle3=5*pi/6",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2*np.pi", "q2": "-np.pi/4", "q3": "5*np.pi/6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What is the end effector position when angle1=3*pi/2, angle2=pi/6, angle3=-2*pi/3",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3*np.pi/2", "q2": "np.pi/6", "q3": "-2*np.pi/3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Forward geometric model when angle1=5*pi/4, angle2=-3*pi/8, angle3=7*pi/12",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "5*np.pi/4", "q2": "-3*np.pi/8", "q3": "7*np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate robot position when angle1=pi/3, angle2=4*pi, angle3=-pi/12",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "np.pi/3", "q2": "4*np.pi", "q3": "-np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Direct kinematics with angle1=7*pi/8, angle2=-5*pi/6, angle3=11*pi/12",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "7*np.pi/8", "q2": "-5*np.pi/6", "q3": "11*np.pi/12", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Find end effector position when angle1=9*pi/10, angle2=pi/8, angle3=-4*pi/5",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "9*np.pi/10", "q2": "np.pi/8", "q3": "-4*np.pi/5", "unidad_angular": "radianes"}}'
+    },
+    # pt 3
+    {
+        "input": "Calculate the end effector position with joint angles 42°, 84°, 126°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "42", "q2": "84", "q3": "126", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Forward kinematics with motor angles 18°, 36°, 54°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "18", "q2": "36", "q3": "54", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What is the robot position with angles 63°, 126°, 189°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "63", "q2": "126", "q3": "189", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Direct kinematics calculation with joint angles 27°, 54°, 81°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "27", "q2": "54", "q3": "81", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate end effector position using angles 75°, 150°, 225°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "75", "q2": "150", "q3": "225", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Forward geometric model with rotation angles 39°, 78°, 117°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "39", "q2": "78", "q3": "117", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "What is the final position with joint angles 51°, 102°, 153°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "51", "q2": "102", "q3": "153", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate robot end position with angles 33°, 66°, 99°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "33", "q2": "66", "q3": "99", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Direct kinematics with servo angles 21°, 42°, 63°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "21", "q2": "42", "q3": "63", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Forward kinematics calculation using angles 48°, 96°, 144°",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "48", "q2": "96", "q3": "144", "unidad_angular": "grados"}}'
     }
 ]
