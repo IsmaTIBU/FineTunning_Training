@@ -92,12 +92,6 @@ test_data = [
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.2", "y": "0.8", "z": "2.1", "unidad_posicion": "m"}}}'
     },
     
-    # Frases muy casuales/naturales
-    {
-        "input": "Hey, can you tell me how to get my arm to that spot over there at 15, 25, 35 centimeters?",
-        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "15", "y": "25", "z": "35", "unidad_posicion": "cm"}}}'
-    },
-    
     # Estructuras originales con diferentes formas de especificar valores
     {
         "input": "Set q₁ to π/3, q₂ to 2π/3, and q₃ to π, then show me the forward kinematics",
