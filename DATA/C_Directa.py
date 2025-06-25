@@ -227,3 +227,128 @@ cinematica_directa_train = [
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "48", "q2": "96", "q3": "144", "unidad_angular": "grados"}}'
     }
 ]
+
+cinematica_directa_NoValues =[
+    {
+        "input": "Calculate the forward kinematics",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What's the position of my robot?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Show me the end effector position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate direct kinematics please",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Where is my robot's end effector?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Find the robot's current position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need the forward geometric model",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate where the robot arm ends up",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What's the final position of the robot?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Show me the robot's end position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Compute the forward kinematics",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Tell me the cartesian position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Where does the robot reach?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the robot's workspace position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I want to know the end effector coordinates",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Determine the robot's final location",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Show me where the arm points to",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the end point position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the end effector coordinates?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Find the robot's tip position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Get the forward kinematics result",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Tell me the robot's reach position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the direct geometric model",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Where is the robot pointing?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Show me the current robot position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need the robot's end location",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate where the robot ends up",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What's the robot's current coordinates?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Find the manipulator's end position",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Give me the forward kinematics calculation",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    }
+]
+
+cinematica_directa_train = cinematica_directa_train + cinematica_directa_NoValues

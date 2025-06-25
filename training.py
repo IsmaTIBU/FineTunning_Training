@@ -28,10 +28,10 @@ print(f"   • Test: {len(test_data)} examples")
 
 # CONFIGURATION FOR A100 (THIS WAS MISSING)
 CONFIG = {
-    'model_name': 'google-t5/t5-base',      #'Salesforce/codet5-base'
+    'model_name': 'Salesforce/codet5-base',
     'batch_size': 6,        # Conservative for small dataset
-    'learning_rate': 5e-5,
-    'epochs': 25,
+    'learning_rate': 5e-5,  #5.2
+    'epochs': 6, #20
     'max_length': 256,
     'device': 'cuda'
 }
@@ -349,18 +349,18 @@ print(f"\n🔍 CASE-BY-CASE COMPARISON:")
 print("-" * 80)
 
 for i in range(len(test_data)):
-    base_case = base_results['detailed_results'][i]
+    # base_case = base_results['detailed_results'][i]
     trained_case = trained_results['detailed_results'][i]
     
-    print(f"\nTest {i+1}: {base_case['input'][:50]}...")
-    print(f"   Base model:    {'✅' if base_case['is_perfect'] else '❌'} Perfect | {'✅' if base_case['is_valid_json'] else '❌'} JSON")
+    # print(f"\nTest {i+1}: {base_case['input'][:50]}...")
+    # print(f"   Base model:    {'✅' if base_case['is_perfect'] else '❌'} Perfect | {'✅' if base_case['is_valid_json'] else '❌'} JSON")
     print(f"   Trained model: {'✅' if trained_case['is_perfect'] else '❌'} Perfect | {'✅' if trained_case['is_valid_json'] else '❌'} JSON")
     
-    if base_case['is_perfect'] != trained_case['is_perfect']:
-        if trained_case['is_perfect']:
-            print(f"   🎉 IMPROVED: Base failed → Trained succeeded")
-        else:
-            print(f"   ⚠️ DEGRADED: Base succeeded → Trained failed")
+    # if base_case['is_perfect'] != trained_case['is_perfect']:
+    #     if trained_case['is_perfect']:
+    #         print(f"   🎉 IMPROVED: Base failed → Trained succeeded")
+    #     else:
+    #         print(f"   ⚠️ DEGRADED: Base succeeded → Trained failed")
 
 # Save final model
 timestamp = datetime.now().strftime("%Y%m%d_%H%M")

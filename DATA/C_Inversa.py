@@ -280,3 +280,88 @@ cinematica_inversa_train = [
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "98", "y": "147", "z": "196", "unidad_posicion": "cm"}}}'
     }
 ]
+
+cinematica_inversa_NoValues = [
+    {
+        "input": "I need the inverse kinematics for the target position",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Calculate the angles needed to reach the desired coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What joint configuration do I need to reach the target point?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Find the robot angles to position the end effector at the specified location",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I want to know the inverse geometric model for the destination coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics to reach the goal position",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What angles does the arm need to reach the final coordinates?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Determine the joint angles for the target workspace position",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I need the robot configuration to reach those specific coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Find the angular solution for the end effector target position",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Calculate the inverse solution for the manipulator to reach the point",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What motor angles are required to position the effector at the desired location?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I need the joint values to move the robot to the target coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Solve the inverse kinematics for the given endpoint",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What configuration is needed to place the end effector at the reference position?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Calculate the angles required for the arm to reach the set coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "I want the inverse geometric model for reaching the objective point",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Find the joint configuration to position the robot at the intended coordinates",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "What are the servo angles needed to reach the established position?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics to move the manipulator to the required location",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    }
+]
+
+cinematica_inversa_train = cinematica_inversa_train + cinematica_inversa_NoValues

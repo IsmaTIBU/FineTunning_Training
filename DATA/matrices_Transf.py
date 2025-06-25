@@ -161,3 +161,89 @@ matrices_train = [
         "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "39", "q2": "171", "q3": "303", "unidad_angular": "grados"}}'
     }
 ]
+
+# 20 frases de matrices de transformación donde se olvida especificar los valores de ángulos
+matrices_NoValues = [
+    {
+        "input": "I need the transformation matrices for the current robot configuration",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the T matrices for the given joint angles",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the homogeneous transformation matrices for this configuration?",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I want to see the T01, T12, T23 and T03 matrices for the robot",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Generate the transformation matrices for the specified angular positions",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the homogeneous matrices for the manipulator at those angles",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need the DH transformation matrices for the current joint configuration",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the T matrices when the robot is in this position?",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the coordinate transformation matrices for the arm",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I want the transformation matrix calculation for the given setup",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Generate the rotation and translation matrices for the robot joints",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the link transformation matrices for this angular configuration?",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need the 4x4 transformation matrices for the robotic system",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the forward transformation matrices for the specified pose",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the kinematic transformation matrices for those joint values?",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I want to see the homogeneous transforms between coordinate frames",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Generate the spatial transformation matrices for the manipulator configuration",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the T matrices representing the robot's kinematic chain",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What are the frame-to-frame transformation matrices for this setup?",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need the sequential transformation matrices for the robot arm",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    }
+]
+
+matrices_train = matrices_train + matrices_NoValues

@@ -275,5 +275,107 @@ simulacion_train = [
     {
         "input": "Show robot with angular positions 48°, 96°, 144°",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "48", "q2": "96", "q3": "144", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    # Correccion 3 pt1
+    {
+        "input": "Show me a simulation with the robot reaching (1.5, 1.0, 2.0) m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "1.5", "y": "1.0", "z": "2.0", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Simulate the robot when the end effector is at (250, 500, 750) mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "250", "y": "500", "z": "750", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "3D visualization of the arm positioned at (35, 70, 105) cm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "35", "y": "70", "z": "105", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Display the robotic arm when it reaches coordinates (0.8, 1.6, 2.4) m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "0.8", "y": "1.6", "z": "2.4", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Visualize the robot with effector at position (180, 360, 540) mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "180", "y": "360", "z": "540", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Simulate the manipulator reaching target (12, 24, 36) cm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "12", "y": "24", "z": "36", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Show 3D representation when the robot is at (3.2, 1.8, 4.5) m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "3.2", "y": "1.8", "z": "4.5", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Render the arm with end effector positioned at (420, 840, 1260) mm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "420", "y": "840", "z": "1260", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Create simulation of the robot at coordinates (55, 110, 165) cm",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "55", "y": "110", "z": "165", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Display the robotic system when positioned at (2.7, 3.6, 1.9) m",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "2.7", "y": "3.6", "z": "1.9", "unidad_posicion": "m"}}}'
+    },
+    # pt2
+    {
+        "input": "Can you display the robot when all joints are at 180 degrees?",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "180", "q2": "180", "q3": "180", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Simulate the robot with all angles set to 90 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "90", "q2": "90", "q3": "90", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show me the robot when the first two joints are at 45 degrees and the last at 135 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "45", "q2": "45", "q3": "135", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display the arm with the two first angles at 60° and the last one at 120°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "60", "q2": "60", "q3": "120", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the robot when the last joint is at 270 degrees and the first two at 0 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "0", "q2": "0", "q3": "270", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Simulate the manipulator with the last two joints at π/2 and the first at π radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi", "q2": "np.pi/2", "q3": "np.pi/2", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show the robot when all three joints are at π/4 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/4", "q2": "np.pi/4", "q3": "np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render the arm with the first joint at 30° and the last two at 150°",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "30", "q2": "150", "q3": "150", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display the robot when all motors are positioned at 240 degrees",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "240", "q2": "240", "q3": "240", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Simulate the robotic arm with the last angle at 3π/4 and the first two at π/6 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi/6", "q2": "np.pi/6", "q3": "3*np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Display the robot when all joints are at pi radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi", "q2": "np.pi", "q3": "np.pi", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Show the arm with the first two angles at π and the last one at 2*pi",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "np.pi", "q2": "np.pi", "q3": "2*np.pi", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Visualize the robot when the last two joints are at π/3 and the first at -pi/2",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "-np.pi/2", "q2": "np.pi/3", "q3": "np.pi/3", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Simulate the manipulator with all three motors at 3*π/2 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "3*np.pi/2", "q2": "3*np.pi/2", "q3": "3*np.pi/2", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
+    },
+    {
+        "input": "Render the arm when the first angle is at 5π/4, and the last two are at -π/4 radians",
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "5*np.pi/4", "q2": "-np.pi/4", "q3": "-np.pi/4", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     }
 ]
