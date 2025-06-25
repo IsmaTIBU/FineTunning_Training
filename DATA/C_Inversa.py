@@ -278,6 +278,311 @@ cinematica_inversa_train = [
     {
         "input": "What angles reach the coordinates: 98, 147, 196 in centimeters?",
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "98", "y": "147", "z": "196", "unidad_posicion": "cm"}}}'
+    },
+    # Correccion 4
+    {
+        "input": "Help me position the robot gripper at point (0.6, 0.8, 1.2) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.6", "y": "0.8", "z": "1.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I need to position the end effector at coordinates (150, 200, 250) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "150", "y": "200", "z": "250", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate angles to position the arm at (45, 67, 89) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "45", "y": "67", "z": "89", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What angles are needed to position the robot at (800, 1200, 1600) millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "800", "y": "1200", "z": "1600", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "How do I position the manipulator at target location (2.5, 3.8, 4.1) m?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.5", "y": "3.8", "z": "4.1", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Find the joint angles to position the robot at (25, 40, 15) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "25", "y": "40", "z": "15", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I want to position the end effector at the target position (320, 480, 640) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "320", "y": "480", "z": "640", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics to position the arm at (1.8, 2.4, 3.6) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.8", "y": "2.4", "z": "3.6", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "What configuration is needed to position the gripper at (78, 156, 234) millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "78", "y": "156", "z": "234", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Help me position the robot tool at coordinates (12, 24, 36) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "12", "y": "24", "z": "36", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I need angles to position the manipulator at the desired position (0.95, 1.15, 1.35) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.95", "y": "1.15", "z": "1.35", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Calculate what's required to position the arm at (500, 750, 1000) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "500", "y": "750", "z": "1000", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "How can I position the robot hand at the specified position (33, 67, 101) cm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "33", "y": "67", "z": "101", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Find the joint values to position the end effector at (1.3, 1.7, 2.1) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.3", "y": "1.7", "z": "2.1", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I want to position the robotic arm at the working position (250, 375, 500) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "250", "y": "375", "z": "500", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate angles needed to position the tool at (55, 110, 165) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "55", "y": "110", "z": "165", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What joint angles position the robot at the exact position (2.7, 3.6, 1.9) m?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.7", "y": "3.6", "z": "1.9", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Help me position the mechanical arm at coordinates (420, 630, 840) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "420", "y": "630", "z": "840", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I need to position the gripper at the pickup position (18, 36, 54) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "18", "y": "36", "z": "54", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics to position the effector at (0.85, 1.95, 2.65) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.85", "y": "1.95", "z": "2.65", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "What angles position the robot at the target position (360, 540, 720) millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "360", "y": "540", "z": "720", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Find the configuration to position the arm at the home position (22, 44, 66) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "22", "y": "44", "z": "66", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I want to position the end effector at the final position (1.4, 2.8, 4.2) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.4", "y": "2.8", "z": "4.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Calculate joint angles to position the manipulator at (675, 900, 1125) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "675", "y": "900", "z": "1125", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "How do I position the robot at the assembly position (39, 78, 117) centimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "39", "y": "78", "z": "117", "unidad_posicion": "cm"}}}'
+    },
+    # Correccion 5
+    {
+        "input": "Run inverse kinematics to reach point (0.6, 0.8, 1.2) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.6", "y": "0.8", "z": "1.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics for target coordinates (150, 200, 250) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "150", "y": "200", "z": "250", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I need inverse kinematics to move to position (45, 67, 89) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "45", "y": "67", "z": "89", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Execute inverse kinematics analysis for coordinates (800, 1200, 1600) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "800", "y": "1200", "z": "1600", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Perform inverse kinematics calculation to reach (2.5, 3.8, 4.1) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.5", "y": "3.8", "z": "4.1", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Apply inverse kinematics to achieve target position (25, 40, 15) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "25", "y": "40", "z": "15", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I want inverse kinematics solution for coordinates (320, 480, 640) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "320", "y": "480", "z": "640", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Solve inverse kinematics problem for destination (1.8, 2.4, 3.6) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.8", "y": "2.4", "z": "3.6", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Generate inverse kinematics for end effector at (78, 156, 234) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "78", "y": "156", "z": "234", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Process inverse kinematics to place tool at (12, 24, 36) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "12", "y": "24", "z": "36", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Execute kinematic inverse solution for target (0.95, 1.15, 1.35) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.95", "y": "1.15", "z": "1.35", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Compute inverse kinematics algorithm for position (500, 750, 1000) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "500", "y": "750", "z": "1000", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Run kinematic inversion to reach coordinates (33, 67, 101) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "33", "y": "67", "z": "101", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate kinematic inverse transformation for point (1.3, 1.7, 2.1) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.3", "y": "1.7", "z": "2.1", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I need kinematic inverse analysis for target (250, 375, 500) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "250", "y": "375", "z": "500", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Perform inverse kinematic computation for coordinates (55, 110, 165) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "55", "y": "110", "z": "165", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Execute reverse kinematics to reach position (2.7, 3.6, 1.9) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.7", "y": "3.6", "z": "1.9", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Apply inverse kinematic model for destination (420, 630, 840) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "420", "y": "630", "z": "840", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Process kinematic inverse calculation for point (18, 36, 54) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "18", "y": "36", "z": "54", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Solve inverse kinematic equation for coordinates (0.85, 1.95, 2.65) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.85", "y": "1.95", "z": "2.65", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Run backward kinematics for target position (360, 540, 720) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "360", "y": "540", "z": "720", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate inverse kinematic solution for endpoint (22, 44, 66) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "22", "y": "44", "z": "66", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Execute kinematic inverse solver for coordinates (1.4, 2.8, 4.2) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.4", "y": "2.8", "z": "4.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Perform inverse kinematics optimization for target (675, 900, 1125) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "675", "y": "900", "z": "1125", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Apply reverse kinematic analysis to reach position (39, 78, 117) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "39", "y": "78", "z": "117", "unidad_posicion": "cm"}}}'
+    },
+    # Correccion 6
+    {
+        "input": "How do I configure my arm to pick up an object at 450mm×300mm×150mm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "450", "y": "300", "z": "150", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Configure the robot to reach coordinates (0.8, 1.2, 1.6) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.8", "y": "1.2", "z": "1.6", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I need to configure the manipulator for position (250, 375, 500) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "250", "y": "375", "z": "500", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "How can I configure the robot arm to access location (35, 70, 105) cm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "35", "y": "70", "z": "105", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Configure the end effector to reach target coordinates (1.5, 2.1, 0.8) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.5", "y": "2.1", "z": "0.8", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "What settings configure the robot for coordinates (180, 360, 540) millimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "180", "y": "360", "z": "540", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I want to configure the arm to grab something at (22, 44, 66) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "22", "y": "44", "z": "66", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Configure the robotic system for target position (2.7, 3.6, 1.9) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.7", "y": "3.6", "z": "1.9", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "How do I configure the joints to place the tool at (420, 630, 840) mm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "420", "y": "630", "z": "840", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Configure the manipulator to work at coordinates (55, 110, 165) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "55", "y": "110", "z": "165", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I need to configure the robot for assembly at (0.95, 1.15, 1.35) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.95", "y": "1.15", "z": "1.35", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Configure the arm angles to reach workspace (675, 900, 1125) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "675", "y": "900", "z": "1125", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "What configuration brings the gripper to (12, 24, 36) centimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "12", "y": "24", "z": "36", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Configure the robot to operate at destination (1.4, 2.8, 4.2) meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.4", "y": "2.8", "z": "4.2", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "How should I configure the system for coordinates (320, 480, 640) mm?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "320", "y": "480", "z": "640", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Configure the mechanical arm to handle objects at (78, 156, 234) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "78", "y": "156", "z": "234", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "I want to configure the robot for precise work at (0.65, 0.85, 1.25) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.65", "y": "0.85", "z": "1.25", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Configure the end effector positioning for coordinates (890, 1340, 670) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "890", "y": "1340", "z": "670", "unidad_posicion": "mm"}}}'
+    },
+    
+    # 7 frases con "point" (30%)
+    {
+        "input": "Calculate angles to reach the target point at (150, 200, 250) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "150", "y": "200", "z": "250", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I need to move the robot to reference point (45, 67, 89) centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "45", "y": "67", "z": "89", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What angles reach the specified point at coordinates (2.5, 3.8, 4.1) meters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.5", "y": "3.8", "z": "4.1", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Find joint values to position at the pickup point (800, 1200, 1600) mm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "800", "y": "1200", "z": "1600", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I want to move the arm to the designated point (33, 67, 101) cm",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "33", "y": "67", "z": "101", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate inverse kinematics for the end point at (1.8, 2.4, 3.6) m",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.8", "y": "2.4", "z": "3.6", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Help me reach the working point at coordinates (500, 750, 1000) millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "500", "y": "750", "z": "1000", "unidad_posicion": "mm"}}}'
     }
 ]
 

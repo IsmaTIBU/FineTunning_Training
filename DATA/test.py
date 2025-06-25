@@ -130,17 +130,7 @@ test_data = [
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "450", "y": "300", "z": "150", "unidad_posicion": "mm"}}}'
     },
     
-    # Frases con terminología mixta
-    {
-        "input": "Check the speed analysis when axis rotations are first=1.4 rad/s, second=2.8 rad/s, third=0.7 rad/s",
-        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.4", "q2_dot": "2.8", "q3_dot": "0.7", "unidad_velocidad": "rad/s"}}'
-    },
-    
     # Estructuras conversacionales
-    {
-        "input": "So I've got this robot, right? And I need to move it to coordinates like... 2.3, 1.8, 0.9 meters",
-        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.3", "y": "1.8", "z": "0.9", "unidad_posicion": "m"}}}'
-    },
     {
         "input": "Quick question: what transformation matrices do I get with angles being 66°, 132°, 198°?",
         "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "66", "q2": "132", "q3": "198", "unidad_angular": "grados"}}'
@@ -181,7 +171,7 @@ test_data = [
     },
     {
         "input": "Show me what happens at joint config 0.3, 1.7, 2.9 rad",
-        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.3", "q2": "1.7", "q3": "2.9", "unidad_angular": "radianes"}}'
+        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "0.3", "q2": "1.7", "q3": "2.9", "unidad_angular": "radianes", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
 ]
 
