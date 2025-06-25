@@ -191,7 +191,7 @@ simulacion_train = [
     },
     # pt2
     {
-        "input": "Simulate robot with joint configuration (18, 36, 54) degrees",
+        "input": "Simulate robot with this joint configuration (18, 36, 54) degrees",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "18", "q2": "36", "q3": "54", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     {
@@ -222,10 +222,6 @@ simulacion_train = [
     {
         "input": "Display robot positioned at 455mm, 910mm, 1365mm",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "455", "y": "910", "z": "1365", "unidad_posicion": "mm"}}}'
-    },
-    {
-        "input": "Show 3D model at coordinates 775mm, 1550mm, 2325mm",
-        "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "posicion_efector": {"x": "775", "y": "1550", "z": "2325", "unidad_posicion": "mm"}}}'
     },
     {
         "input": "Generate visualization with effector at 625mm, 1250mm, 1875mm",
@@ -269,7 +265,7 @@ simulacion_train = [
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "63", "q2": "126", "q3": "189", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     {
-        "input": "Render manipulator with joint configuration 87°, 174°, 261°",
+        "input": "Render manipulator with this joint configuration 87°, 174°, 261°",
         "output": '{"operacion": "simulacion_3d", "parametros": {"q1": "87", "q2": "174", "q3": "261", "unidad_angular": "grados", "posicion_efector": {"x": "", "y": "", "z": "", "unidad_posicion": ""}}}'
     },
     {

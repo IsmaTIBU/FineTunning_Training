@@ -118,5 +118,46 @@ matrices_train = [
     {
         "input": "Homogeneous transformation of the manipulator for 21°, 105°, 189°",
         "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "21", "q2": "105", "q3": "189", "unidad_angular": "grados"}}'
+    },
+    # Correccion 1
+    {
+        "input": "Calculate transformation matrices for angles 45°, 186°, 315°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "45", "q2": "186", "q3": "315", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "I need the T matrices for configuration 72°, 162°, 288°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "72", "q2": "162", "q3": "288", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Homogeneous matrices for joint angles 36°, 174°, 252°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "36", "q2": "174", "q3": "252", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate the matrices for robot configuration 84°, 168°, 336°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "84", "q2": "168", "q3": "336", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Transformation matrices when q1=60°, q2=180°, q3=240°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "60", "q2": "180", "q3": "240", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Get T01, T12, T23 matrices for angles 27°, 165°, 294°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "27", "q2": "165", "q3": "294", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "I want transformation matrices for configuration 48°, 183°, 267°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "48", "q2": "183", "q3": "267", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Calculate T matrices with joint setup 33°, 177°, 321°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "33", "q2": "177", "q3": "321", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Homogeneous transformation for angles 51°, 189°, 258°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "51", "q2": "189", "q3": "258", "unidad_angular": "grados"}}'
+    },
+    {
+        "input": "Transformation matrices for robot joints at 39°, 171°, 303°",
+        "output": '{"operacion": "matrices_transformacion", "parametros": {"q1": "39", "q2": "171", "q3": "303", "unidad_angular": "grados"}}'
     }
 ]

@@ -211,10 +211,6 @@ cinematica_inversa_train = [
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "123", "y": "456", "z": "789", "unidad_posicion": "mm"}}}'
     },
     {
-        "input": "What configuration for manipulator coordinates 6m, 80m, 100m?",
-        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "6", "y": "80", "z": "100", "unidad_posicion": "m"}}}'
-    },
-    {
         "input": "Joint angles needed for effector coordinates 75mm, 150mm, 225mm",
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "75", "y": "150", "z": "225", "unidad_posicion": "mm"}}}'
     },
@@ -241,5 +237,46 @@ cinematica_inversa_train = [
     {
         "input": "Calculate angles when effector coordinates are 185mm, 370mm, 555mm",
         "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "185", "y": "370", "z": "555", "unidad_posicion": "mm"}}}'
+    },
+    # Correccion 3
+    {
+        "input": "I need the robot to reach these coordinates: 567, 891, -234 in millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "567", "y": "891", "z": "-234", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Position the end effector at coordinates: 1250, 875, 450 in millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1250", "y": "875", "z": "450", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "Calculate angles to place the robot at coordinates: 720, -680, 1150 in millimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "720", "y": "-680", "z": "1150", "unidad_posicion": "mm"}}}'
+    },
+    {
+        "input": "I want the manipulator to be positioned at coordinates: 2.4, 1.8, -0.6 in meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "2.4", "y": "1.8", "z": "-0.6", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Move the robotic arm to these coordinates: 1.35, -2.75, 3.20 in meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "1.35", "y": "-2.75", "z": "3.20", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "Find joint angles for target coordinates: 0.85, 1.95, 2.65 in meters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "0.85", "y": "1.95", "z": "2.65", "unidad_posicion": "m"}}}'
+    },
+    {
+        "input": "I need the robot end effector at these coordinates: 85, 170, 255 in centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "85", "y": "170", "z": "255", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Position the arm at target coordinates: 42, -63, 126 in centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "42", "y": "-63", "z": "126", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "Calculate robot configuration for coordinates: 155, 310, -275 in centimeters",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "155", "y": "310", "z": "-275", "unidad_posicion": "cm"}}}'
+    },
+    {
+        "input": "What angles reach the coordinates: 98, 147, 196 in centimeters?",
+        "output": '{"operacion": "cinematica_inversa", "parametros": {"posicion_objetivo": {"x": "98", "y": "147", "z": "196", "unidad_posicion": "cm"}}}'
     }
 ]
