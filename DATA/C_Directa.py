@@ -225,6 +225,87 @@ cinematica_directa_train = [
     {
         "input": "Forward kinematics calculation using angles 48°, 96°, 144°",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "48", "q2": "96", "q3": "144", "unidad_angular": "grados"}}'
+    },
+    # Correccion 3
+    {
+        "input": "What's the robot position when the motors are at 2.1, 0.9, 1.7 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.1", "q2": "0.9", "q3": "1.7", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate direct kinematics with motors positioned at 1.5, 2.8, 0.6 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.5", "q2": "2.8", "q3": "0.6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Forward kinematics when the three motors are at 3.2, 1.1, 2.4 radianes",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3.2", "q2": "1.1", "q3": "2.4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What is the end effector position with motors at 0.8, 1.9, 3.3 rad?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.8", "q2": "1.9", "q3": "3.3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Direct kinematics calculation when motors are configured to 2.7, 0.4, 1.8 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.7", "q2": "0.4", "q3": "1.8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the forward geometric model with motor angles 1.3, 2.6, 0.2 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.3", "q2": "2.6", "q3": "0.2", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the robot's final position when motors are set to 3.8, 1.4, 2.9 radianes?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3.8", "q2": "1.4", "q3": "2.9", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Forward kinematics with motor configuration 0.5, 3.1, 1.6 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.5", "q2": "3.1", "q3": "1.6", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate end effector position when the motors rotate to 2.2, 0.7, 3.5 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.2", "q2": "0.7", "q3": "3.5", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Direct kinematics for motor positions 1.9, 2.3, 0.1 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.9", "q2": "2.3", "q3": "0.1", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the robot position when the axes are at 1.4, 2.7, 0.8 radians?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.4", "q2": "2.7", "q3": "0.8", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate forward kinematics with axes positioned at 3.6, 1.2, 2.5 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3.6", "q2": "1.2", "q3": "2.5", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Direct kinematics when the three axes are at 0.3, 1.8, 3.4 radianes",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.3", "q2": "1.8", "q3": "3.4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What is the end effector position with axes at 2.9, 0.6, 1.1 rad?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.9", "q2": "0.6", "q3": "1.1", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Forward geometric model calculation when axes are configured to 1.7, 3.0, 0.4 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.7", "q2": "3.0", "q3": "0.4", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate the direct kinematics with axis angles 2.8, 1.5, 3.7 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.8", "q2": "1.5", "q3": "3.7", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "What's the robot's final position when axes are set to 0.9, 2.4, 1.3 radianes?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "0.9", "q2": "2.4", "q3": "1.3", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Direct kinematics with axis configuration 3.3, 0.7, 2.1 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "3.3", "q2": "0.7", "q3": "2.1", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Calculate end effector position when the axes rotate to 1.6, 2.9, 0.5 radians",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "1.6", "q2": "2.9", "q3": "0.5", "unidad_angular": "radianes"}}'
+    },
+    {
+        "input": "Forward kinematics for axis positions 2.0, 1.0, 3.8 rad",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "2.0", "q2": "1.0", "q3": "3.8", "unidad_angular": "radianes"}}'
     }
 ]
 
