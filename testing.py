@@ -24,7 +24,7 @@ print(f"📊 Test data loaded: {len(test_data)} examples")
 # =============================================================================
 CONFIG = {
     'model_name': 'Salesforce/codet5-base',  # Base model name
-    'model_path': './models/best_robotics_model.pth',  # Path to your trained model
+    'model_path': './models/robotics_codet5_final.pth',  # Path to your trained model
     'max_length': 256,
     'device': 'cuda' if torch.cuda.is_available() else 'cpu'
 }

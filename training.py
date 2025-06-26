@@ -6,6 +6,8 @@ import sys
 import os
 import json
 from datetime import datetime
+import hashlib
+from google.colab import files
 
 # Setup path
 sys.path.append('/content/PRUEBA')
@@ -48,6 +50,59 @@ model = model.to(CONFIG['device'])
 
 print(f"✅ Model loaded on GPU")
 print(f"✅ Parameters: {model.num_parameters():,}")
+
+def safe_download_model(model_path, model_name="trained_model"):
+    """Descarga segura con verificación de integridad"""
+    
+    print(f"\n💾 INICIANDO DESCARGA SEGURA DE {model_name}")
+    print("=" * 60)
+    
+    try:
+        # 1. Verificar que el archivo existe
+        if not os.path.exists(model_path):
+            print(f"❌ Archivo no encontrado: {model_path}")
+            return False
+        
+        # 2. Verificar integridad del modelo
+        print(f"🔍 Verificando integridad del modelo...")
+        state_dict = torch.load(model_path, map_location='cpu')
+        file_size = os.path.getsize(model_path)
+        
+        print(f"✅ Modelo válido:")
+        print(f"   📏 Tamaño: {file_size / (1024*1024):.2f} MB")
+        print(f"   🔑 Parámetros: {len(state_dict.keys())} grupos")
+        
+        # 3. Calcular hash para verificación posterior
+        print(f"🔒 Calculando hash MD5...")
+        with open(model_path, 'rb') as f:
+            file_hash = hashlib.md5(f.read()).hexdigest()
+        print(f"   Hash MD5: {file_hash}")
+        
+        # 4. Crear archivo de verificación
+        hash_file = model_path.replace('.pth', '_hash.txt')
+        with open(hash_file, 'w') as f:
+            f.write(f"Model: {os.path.basename(model_path)}\n")
+            f.write(f"Size: {file_size} bytes\n")
+            f.write(f"MD5: {file_hash}\n")
+            f.write(f"Parameters: {len(state_dict.keys())} groups\n")
+        
+        print(f"📄 Archivo de verificación creado: {hash_file}")
+        
+        # 5. Descargar ambos archivos
+        print(f"📥 Descargando modelo...")
+        files.download(model_path)
+        
+        print(f"📥 Descargando archivo de verificación...")
+        files.download(hash_file)
+        
+        print(f"✅ DESCARGA COMPLETADA EXITOSAMENTE")
+        print(f"💡 Usa el archivo {os.path.basename(hash_file)} para verificar la integridad")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error durante la descarga: {e}")
+        return False
 
 # Dataset class
 class RoboticsDataset(Dataset):
@@ -415,3 +470,19 @@ with open(f'./models/comparison_report_{timestamp}.json', 'w') as f:
 
 print(f"\n📄 Detailed comparison report saved as: comparison_report_{timestamp}.json")
 print(f"\n🚀 Model trained and ready to use!")
+
+print(f"\n🚀 INICIANDO DESCARGA SEGURA DE MODELOS")
+
+# Descargar el mejor modelo
+best_model_path = './models/best_robotics_model.pth'
+if os.path.exists(best_model_path):
+    safe_download_model(best_model_path, "BEST_MODEL")
+else:
+    print(f"⚠️ Modelo 'best' no encontrado en {best_model_path}")
+
+# Descargar el modelo final con timestamp
+final_model_path = f'./models/robotics_codet5_final_{timestamp}.pth'
+if os.path.exists(final_model_path):
+    safe_download_model(final_model_path, "FINAL_MODEL")
+else:
+    print(f"⚠️ Modelo final no encontrado en {final_model_path}")
