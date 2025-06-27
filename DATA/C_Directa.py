@@ -551,6 +551,67 @@ cinematica_directa_NoValues =[
     {
         "input": "Give me the forward kinematics calculation",
         "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    # Correccion 6
+    {
+        "input": "What are the current coordinates of the robot?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Show me the robot's coordinates",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I need to know the coordinates of the end effector",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the coordinates where the robot is pointing",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Find the cartesian coordinates of the robot arm",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Tell me the workspace coordinates of the robot",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "What coordinates does the robot reach?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Give me the coordinates of the manipulator tip",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Display the current coordinates of the end effector",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Calculate the final coordinates of the robot arm",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Can you determine the coordinates for me?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "I'm looking for the robot's coordinates right now",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Could you help me find the coordinates?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "The coordinates of my robot are what exactly?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
+    },
+    {
+        "input": "Where can I see the coordinates of the arm?",
+        "output": '{"operacion": "cinematica_directa", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": ""}}'
     }
 ]
 

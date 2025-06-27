@@ -280,6 +280,167 @@ jacobiano_train = [
     {
         "input": "What's the movement velocity when positioned at 0.4, 1.6, 2.8 rad and rotating at 1.2, 2.5, 1.9 rad/s?",
         "output": '{"operacion": "jacobiano", "parametros": {"q1": "0.4", "q2": "1.6", "q3": "2.8", "unidad_angular": "radianes", "q1_dot": "1.2", "q2_dot": "2.5", "q3_dot": "1.9", "unidad_velocidad": "rad/s"}}'
+    },
+    # Correccion 3
+    {
+        "input": "Calculate the jacobian when all angles are 45° and all velocities are 1.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "45", "q2": "45", "q3": "45", "unidad_angular": "grados", "q1_dot": "1.5", "q2_dot": "1.5", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when all joints are at 30 degrees and all speeds are 2.0 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "30", "q2": "30", "q3": "30", "unidad_angular": "grados", "q1_dot": "2.0", "q2_dot": "2.0", "q3_dot": "2.0", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for all angles set to 90° and all velocities at 0.8 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "90", "q2": "90", "q3": "90", "unidad_angular": "grados", "q1_dot": "0.8", "q2_dot": "0.8", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when all joint angles are 60 degrees and all angular speeds are 1.2 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "60", "q2": "60", "q3": "60", "unidad_angular": "grados", "q1_dot": "1.2", "q2_dot": "1.2", "q3_dot": "1.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with all angles at 1.0 radians and all velocities at -0.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.0", "q2": "1.0", "q3": "1.0", "unidad_angular": "radianes", "q1_dot": "-0.5", "q2_dot": "-0.5", "q3_dot": "-0.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need the jacobian when all joints are positioned at 120° and all speeds equal 2.5 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "120", "q2": "120", "q3": "120", "unidad_angular": "grados", "q1_dot": "2.5", "q2_dot": "2.5", "q3_dot": "2.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian if all angles are 0 degrees and all angular velocities are 3.0 rad/s?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0", "q2": "0", "q3": "0", "unidad_angular": "grados", "q1_dot": "3.0", "q2_dot": "3.0", "q3_dot": "3.0", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix when all joint angles equal π/2 radians and all velocities are 1.8 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/2", "q2": "np.pi/2", "q3": "np.pi/2", "unidad_angular": "radianes", "q1_dot": "1.8", "q2_dot": "1.8", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me the jacobian with all angles set to -45 degrees and all speeds at 0.7 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "-45", "q2": "-45", "q3": "-45", "unidad_angular": "grados", "q1_dot": "0.7", "q2_dot": "0.7", "q3_dot": "0.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian when all joint positions are 1.57 radians and all joint velocities are 2.1 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.57", "q2": "1.57", "q3": "1.57", "unidad_angular": "radianes", "q1_dot": "2.1", "q2_dot": "2.1", "q3_dot": "2.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when all angles are 45° and velocities are 1.2, -0.8, 2.3 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "45", "q2": "45", "q3": "45", "unidad_angular": "grados", "q1_dot": "1.2", "q2_dot": "-0.8", "q3_dot": "2.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when all joints are at 30° and speeds are 0.5, 1.8, -1.1 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "30", "q2": "30", "q3": "30", "unidad_angular": "grados", "q1_dot": "0.5", "q2_dot": "1.8", "q3_dot": "-1.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for all angles set to 90° and velocities at 2.7, 0.3, -1.9 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "90", "q2": "90", "q3": "90", "unidad_angular": "grados", "q1_dot": "2.7", "q2_dot": "0.3", "q3_dot": "-1.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when all joint angles are 60 degrees and angular speeds are -0.4, 2.1, 0.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "60", "q2": "60", "q3": "60", "unidad_angular": "grados", "q1_dot": "-0.4", "q2_dot": "2.1", "q3_dot": "0.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with all angles at 1.5 radians and velocities 1.6, -2.4, 0.7 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.5", "q2": "1.5", "q3": "1.5", "unidad_angular": "radianes", "q1_dot": "1.6", "q2_dot": "-2.4", "q3_dot": "0.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need the jacobian when all joints are positioned at 120° and speeds are 0.8, 1.3, -0.6 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "120", "q2": "120", "q3": "120", "unidad_angular": "grados", "q1_dot": "0.8", "q2_dot": "1.3", "q3_dot": "-0.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian if all angles are 0 degrees and angular velocities are 3.2, -1.7, 2.5 rad/s?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0", "q2": "0", "q3": "0", "unidad_angular": "grados", "q1_dot": "3.2", "q2_dot": "-1.7", "q3_dot": "2.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix when all joint angles equal π/4 radians and velocities are -1.0, 0.2, 1.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/4", "q2": "np.pi/4", "q3": "np.pi/4", "unidad_angular": "radianes", "q1_dot": "-1.0", "q2_dot": "0.2", "q3_dot": "1.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me the jacobian with all angles set to -30 degrees and speeds at 2.0, -0.1, 1.4 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "-30", "q2": "-30", "q3": "-30", "unidad_angular": "grados", "q1_dot": "2.0", "q2_dot": "-0.1", "q3_dot": "1.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian when all joint positions are 2.1 radians and joint velocities are 0.6, -2.8, 1.1 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "2.1", "q2": "2.1", "q3": "2.1", "unidad_angular": "radianes", "q1_dot": "0.6", "q2_dot": "-2.8", "q3_dot": "1.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when all angles are 75° and velocities are 1.7, 0.4, -2.3 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "75", "q2": "75", "q3": "75", "unidad_angular": "grados", "q1_dot": "1.7", "q2_dot": "0.4", "q3_dot": "-2.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when all joints are at 135 degrees and speeds are -0.9, 2.6, 0.1 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "135", "q2": "135", "q3": "135", "unidad_angular": "grados", "q1_dot": "-0.9", "q2_dot": "2.6", "q3_dot": "0.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for all angles set to π/2 radians and velocities at 3.1, -1.5, 0.8 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/2", "q2": "np.pi/2", "q3": "np.pi/2", "unidad_angular": "radianes", "q1_dot": "3.1", "q2_dot": "-1.5", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when all joint angles are 15 degrees and angular speeds are 1.3, -0.7, 2.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "15", "q2": "15", "q3": "15", "unidad_angular": "grados", "q1_dot": "1.3", "q2_dot": "-0.7", "q3_dot": "2.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with all angles at 0.8 radians and velocities 2.4, 1.0, -1.6 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0.8", "q2": "0.8", "q3": "0.8", "unidad_angular": "radianes", "q1_dot": "2.4", "q2_dot": "1.0", "q3_dot": "-1.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when angles are 20°, 45°, 90° and all velocities are 1.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "20", "q2": "45", "q3": "90", "unidad_angular": "grados", "q1_dot": "1.5", "q2_dot": "1.5", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when joint angles are 30°, -60°, 120° and all speeds are 2.3 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "30", "q2": "-60", "q3": "120", "unidad_angular": "grados", "q1_dot": "2.3", "q2_dot": "2.3", "q3_dot": "2.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for angles 75°, 135°, 0° and all velocities set to 0.8 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "75", "q2": "135", "q3": "0", "unidad_angular": "grados", "q1_dot": "0.8", "q2_dot": "0.8", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when joint angles are 1.2, 0.5, 2.8 radians and all angular speeds are 1.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.2", "q2": "0.5", "q3": "2.8", "unidad_angular": "radianes", "q1_dot": "1.9", "q2_dot": "1.9", "q3_dot": "1.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with angles 45°, 15°, -30° and all velocities at 2.7 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "45", "q2": "15", "q3": "-30", "unidad_angular": "grados", "q1_dot": "2.7", "q2_dot": "2.7", "q3_dot": "2.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need the jacobian when joints are positioned at 60°, 180°, 270° and all speeds equal 0.4 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "60", "q2": "180", "q3": "270", "unidad_angular": "grados", "q1_dot": "0.4", "q2_dot": "0.4", "q3_dot": "0.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian if angles are π/6, π/3, π/2 radians and all angular velocities are 3.1 rad/s?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/6", "q2": "np.pi/3", "q3": "np.pi/2", "unidad_angular": "radianes", "q1_dot": "3.1", "q2_dot": "3.1", "q3_dot": "3.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix when joint angles are 105°, -45°, 225° and all velocities are 1.6 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "105", "q2": "-45", "q3": "225", "unidad_angular": "grados", "q1_dot": "1.6", "q2_dot": "1.6", "q3_dot": "1.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me the jacobian with angles 0°, 90°, 180° and all speeds at 2.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0", "q2": "90", "q3": "180", "unidad_angular": "grados", "q1_dot": "2.5", "q2_dot": "2.5", "q3_dot": "2.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian when joint positions are 0.7, -1.4, 2.1 radians and all joint velocities are 0.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0.7", "q2": "-1.4", "q3": "2.1", "unidad_angular": "radianes", "q1_dot": "0.9", "q2_dot": "0.9", "q3_dot": "0.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when angles are 165°, 30°, 75° and all velocities are 1.8 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "165", "q2": "30", "q3": "75", "unidad_angular": "grados", "q1_dot": "1.8", "q2_dot": "1.8", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when joint angles are 2.5, 0.3, 1.7 radians and all speeds are 2.2 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "2.5", "q2": "0.3", "q3": "1.7", "unidad_angular": "radianes", "q1_dot": "2.2", "q2_dot": "2.2", "q3_dot": "2.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for angles 315°, 210°, 150° and all velocities set to 0.6 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "315", "q2": "210", "q3": "150", "unidad_angular": "grados", "q1_dot": "0.6", "q2_dot": "0.6", "q3_dot": "0.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when joint angles are π/4, 3π/4, π radians and all angular speeds are 1.3 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/4", "q2": "3*np.pi/4", "q3": "np.pi", "unidad_angular": "radianes", "q1_dot": "1.3", "q2_dot": "1.3", "q3_dot": "1.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with angles 240°, 300°, 36° and all velocities at 2.9 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "240", "q2": "300", "q3": "36", "unidad_angular": "grados", "q1_dot": "2.9", "q2_dot": "2.9", "q3_dot": "2.9", "unidad_velocidad": "rad/s"}}'
     }
 ]
 
@@ -523,6 +684,187 @@ jacobiano_NoValues = [
     {
         "input": "Calculate the system jacobian using angular positions 69°, 138°, 276°",
         "output": '{"operacion": "jacobiano", "parametros": {"q1": "69", "q2": "138", "q3": "276", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    # Correccion 3
+    {
+        "input": "What's the jacobian when joint velocities are 1.2, -0.5, 0.8 rad/s?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.2", "q2_dot": "-0.5", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian with velocities 2.1, 0.9, -1.3 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.1", "q2_dot": "0.9", "q3_dot": "-1.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian for joint speeds of 0.6, 1.8, -0.4 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.6", "q2_dot": "1.8", "q3_dot": "-0.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need the jacobian when all joint velocities are 1.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.5", "q2_dot": "1.5", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian with angular speeds 0.3, -2.1, 1.7 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.3", "q2_dot": "-2.1", "q3_dot": "1.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian for velocities -0.8, 2.5, 0.1 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-0.8", "q2_dot": "2.5", "q3_dot": "0.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when joint speeds are 1.9, 0.7, -1.1 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.9", "q2_dot": "0.7", "q3_dot": "-1.1", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me the jacobian analysis for velocities 0.4, -1.6, 2.3 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.4", "q2_dot": "-1.6", "q3_dot": "2.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian when all speeds are 0.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.9", "q2_dot": "0.9", "q3_dot": "0.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian with joint velocities -1.4, 0.2, 1.8 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-1.4", "q2_dot": "0.2", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I want the jacobian for angular velocities 2.7, -0.3, 0.6 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.7", "q2_dot": "-0.3", "q3_dot": "0.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix for speeds 1.1, 2.4, -0.7 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.1", "q2_dot": "2.4", "q3_dot": "-0.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian when velocities are 0.0, 1.3, -2.2 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.0", "q2_dot": "1.3", "q3_dot": "-2.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Compute jacobian with joint speeds -0.1, -1.9, 1.4 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-0.1", "q2_dot": "-1.9", "q3_dot": "1.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me jacobian for angular speeds 3.0, 0.5, -1.0 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "3.0", "q2_dot": "0.5", "q3_dot": "-1.0", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when all joint velocities are -0.6 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-0.6", "q2_dot": "-0.6", "q3_dot": "-0.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need jacobian analysis with velocities 1.0, -2.8, 0.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.0", "q2_dot": "-2.8", "q3_dot": "0.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for speeds 2.2, 1.6, -0.9 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.2", "q2_dot": "1.6", "q3_dot": "-0.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix for joint velocities -1.7, 0.8, 2.9 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-1.7", "q2_dot": "0.8", "q3_dot": "2.9", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me jacobian when angular speeds are 0.7, -1.2, 1.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.7", "q2_dot": "-1.2", "q3_dot": "1.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian calculation for velocities 2.6, 0.4, -1.8 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.6", "q2_dot": "0.4", "q3_dot": "-1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with all speeds at 2.0 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.0", "q2_dot": "2.0", "q3_dot": "2.0", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I want the jacobian for joint velocities -0.5, 3.1, 0.3 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-0.5", "q2_dot": "3.1", "q3_dot": "0.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix when speeds are 1.3, -0.4, 2.7 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.3", "q2_dot": "-0.4", "q3_dot": "2.7", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian when all angular velocities are 1.8 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.8", "q2_dot": "1.8", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate the jacobian when all angles are 30 degrees",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "30", "q2": "30", "q3": "30", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "What's the jacobian matrix when all joints are at 45°?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "45", "q2": "45", "q3": "45", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Find the jacobian for all angles set to 0 degrees",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "0", "q2": "0", "q3": "0", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Show me the jacobian when all joint angles are 90°",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "90", "q2": "90", "q3": "90", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Calculate jacobian with all angles at 1.5 radians",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "1.5", "q2": "1.5", "q3": "1.5", "unidad_angular": "radianes", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "I need the jacobian when all joints are positioned at 60 degrees",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "60", "q2": "60", "q3": "60", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "What's the jacobian if all angles are π/4 radians?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "np.pi/4", "q2": "np.pi/4", "q3": "np.pi/4", "unidad_angular": "radianes", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Find jacobian matrix when all joint angles equal 120°",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "120", "q2": "120", "q3": "120", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Give me the jacobian with all angles set to -30 degrees",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "-30", "q2": "-30", "q3": "-30", "unidad_angular": "grados", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Show jacobian when all joint positions are 2.1 radians",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "2.1", "q2": "2.1", "q3": "2.1", "unidad_angular": "radianes", "q1_dot": "", "q2_dot": "", "q3_dot": "", "unidad_velocidad": ""}}'
+    },
+    {
+        "input": "Calculate the jacobian when all velocities are 1.2 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.2", "q2_dot": "1.2", "q3_dot": "1.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian matrix when all speeds are 0.8 radians per second?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.8", "q2_dot": "0.8", "q3_dot": "0.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find the jacobian for all joint velocities set to 2.5 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.5", "q2_dot": "2.5", "q3_dot": "2.5", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show me the jacobian when all angular speeds are 0.6 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.6", "q2_dot": "0.6", "q3_dot": "0.6", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Calculate jacobian with all velocities at -1.3 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-1.3", "q2_dot": "-1.3", "q3_dot": "-1.3", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "I need the jacobian when all joint speeds equal 3.0 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "3.0", "q2_dot": "3.0", "q3_dot": "3.0", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "What's the jacobian if all angular velocities are 1.8 rad/s?",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "1.8", "q2_dot": "1.8", "q3_dot": "1.8", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Find jacobian matrix when all speeds are 0.4 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "0.4", "q2_dot": "0.4", "q3_dot": "0.4", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Give me the jacobian with all velocities set to 2.2 rad/s",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "2.2", "q2_dot": "2.2", "q3_dot": "2.2", "unidad_velocidad": "rad/s"}}'
+    },
+    {
+        "input": "Show jacobian when all joint velocities are -0.9 radians per second",
+        "output": '{"operacion": "jacobiano", "parametros": {"q1": "", "q2": "", "q3": "", "unidad_angular": "", "q1_dot": "-0.9", "q2_dot": "-0.9", "q3_dot": "-0.9", "unidad_velocidad": "rad/s"}}'
     }
 ]
 
